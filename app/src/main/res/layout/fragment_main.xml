@@ -112,23 +112,23 @@
             app:layout_constraintStart_toEndOf="@id/lblVehicleType" />
 
         <TextView
-            android:id="@+id/lblFuelType"
+            android:id="@+id/lblEngineType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_x8"
             android:layout_marginTop="@dimen/margin_x8"
-            android:text="fuel_type"
+            android:text="engine_type"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lblVehicleType" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/btnFuelType"
+            android:id="@+id/btnEngineType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_x4"
-            android:text="selected_fuel_type"
-            app:layout_constraintBaseline_toBaselineOf="@id/lblFuelType"
-            app:layout_constraintStart_toEndOf="@id/lblFuelType" />
+            android:text="selected_engine_type"
+            app:layout_constraintBaseline_toBaselineOf="@id/lblEngineType"
+            app:layout_constraintStart_toEndOf="@id/lblEngineType" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

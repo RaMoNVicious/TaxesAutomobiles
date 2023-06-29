@@ -21,4 +21,28 @@ class MainFragment : Fragment() {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         return _binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        _binding.apply {
+            lifecycleOwner = this@MainFragment
+
+            viewModel.taxRegistration.observe(viewLifecycleOwner) {
+                txtRegistrationTaxes.text = "%d €".format(it.toInt())
+            }
+
+            viewModel.taxAnnual.observe(viewLifecycleOwner) {
+                txtAnnualTaxes.text = "%d €".format(it.toInt())
+            }
+
+            viewModel.taxInput.observe(viewLifecycleOwner) {
+                btnRegion.text = it.region.toString()
+                btnVehicleType.text = it.vehicleType.toString()
+                btnEngineType.text = it.engineType.toString()
+            }
+
+            viewModel.getTaxes()
+        }
+    }
 }
