@@ -1,3 +1,47 @@
 <resources>
     <string name="app_name">Taxes Automobiles</string>
+
+    <string name="selection_title">Select %s</string>
+
+    <string name="region_title">Region</string>
+    <string name="region_walloon">Walloon</string>
+    <string name="region_flemish">Flemish</string>
+    <string name="region_brussels">Brussels</string>
+
+    <string name="vehicle_type_title">Vehicle type</string>
+    <string name="vehicle_type_car">Passenger car</string>
+    <string name="vehicle_type_moto">Motorcycle</string>
+
+    <string name="engine_type_title">Engine type</string>
+    <string name="engine_type_petrol">Petrol</string>
+    <string name="engine_type_diesel">Diesel</string>
+    <string name="engine_type_lpg">LPG</string>
+    <string name="engine_type_hybrid">Hybrid</string>
+    <string name="engine_type_electric">Electric</string>
+
+    <string name="engine_power_title">Engine Power, kW</string>
+    <string name="engine_power_up_to_70">≥70</string>
+    <string name="engine_power_up_to_85">71 – 85</string>
+    <string name="engine_power_up_to_100">86 – 100</string>
+    <string name="engine_power_up_to_110">101 – 110</string>
+    <string name="engine_power_up_to_120">111 – 120</string>
+    <string name="engine_power_up_to_155">121 – 155</string>
+    <string name="engine_power_more_than_155">155+</string>
+
+    <string name="emission_title">CO2 Emission, g/km</string>
+    <string name="emission_up_to_145">≥145</string>
+    <string name="emission_up_to_155">146 – 155</string>
+    <string name="emission_up_to_165">156 – 165</string>
+    <string name="emission_up_to_175">166 – 175</string>
+    <string name="emission_up_to_185">176 – 185</string>
+    <string name="emission_up_to_195">186 – 195</string>
+    <string name="emission_up_to_205">196 – 205</string>
+    <string name="emission_up_to_215">206 – 215</string>
+    <string name="emission_up_to_225">216 – 225</string>
+    <string name="emission_up_to_235">226 – 235</string>
+    <string name="emission_up_to_245">236 – 245</string>
+    <string name="emission_up_to_255">246 – 255</string>
+    <string name="emission_more_than_255">255+</string>
+
+
 </resources>

@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_x8"
             android:layout_marginTop="@dimen/margin_x16"
-            android:text="region"
+            android:text="@string/region_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lblRegistrationTaxes" />
 
@@ -98,7 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_x8"
             android:layout_marginTop="@dimen/margin_x8"
-            android:text="vehicle_type"
+            android:text="@string/vehicle_type_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lblRegion" />
 
@@ -117,7 +117,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_x8"
             android:layout_marginTop="@dimen/margin_x8"
-            android:text="engine_type"
+            android:text="@string/engine_type_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lblVehicleType" />
 
@@ -129,6 +129,101 @@
             android:text="selected_engine_type"
             app:layout_constraintBaseline_toBaselineOf="@id/lblEngineType"
             app:layout_constraintStart_toEndOf="@id/lblEngineType" />
+
+        <TextView
+            android:id="@+id/lblAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_x8"
+            android:layout_marginTop="@dimen/margin_x8"
+            android:text="age"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblEngineType" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btnAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_x4"
+            android:text="selected_age"
+            app:layout_constraintBaseline_toBaselineOf="@id/lblAge"
+            app:layout_constraintStart_toEndOf="@id/lblAge" />
+
+        <TextView
+            android:id="@+id/lblEnginePower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_x8"
+            android:layout_marginTop="@dimen/margin_x8"
+            android:text="@string/engine_power_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblAge" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btnEnginePower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_x4"
+            android:text="selected_engine_power"
+            app:layout_constraintBaseline_toBaselineOf="@id/lblEnginePower"
+            app:layout_constraintStart_toEndOf="@id/lblEnginePower" />
+
+        <TextView
+            android:id="@+id/lblEngineSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_x8"
+            android:layout_marginTop="@dimen/margin_x8"
+            android:text="engine_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblEnginePower" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btnEngineSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_x4"
+            android:text="selected_engine_size"
+            app:layout_constraintBaseline_toBaselineOf="@id/lblEngineSize"
+            app:layout_constraintStart_toEndOf="@id/lblEngineSize" />
+
+        <TextView
+            android:id="@+id/lblEmissions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_x8"
+            android:layout_marginTop="@dimen/margin_x8"
+            android:text="@string/emission_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblEngineSize" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btnEmissions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_x4"
+            android:text="selected_emissions"
+            app:layout_constraintBaseline_toBaselineOf="@id/lblEmissions"
+            app:layout_constraintStart_toEndOf="@id/lblEmissions" />
+
+        <TextView
+            android:id="@+id/lblChildren"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_x8"
+            android:layout_marginTop="@dimen/margin_x8"
+            android:text="children_count"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblEmissions" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btnChildren"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_x4"
+            android:text="selected_children_coung"
+            app:layout_constraintBaseline_toBaselineOf="@id/lblChildren"
+            app:layout_constraintStart_toEndOf="@id/lblChildren" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

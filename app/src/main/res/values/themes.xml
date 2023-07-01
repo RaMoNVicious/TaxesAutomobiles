@@ -8,4 +8,12 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
+    <style name="BottomSheetPopupTheme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetPopup</item>
+    </style>
+
+    <style name="BottomSheetPopup" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/background_dialog</item>
+    </style>
+
 </resources>

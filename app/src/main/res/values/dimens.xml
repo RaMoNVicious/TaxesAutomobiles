@@ -11,4 +11,6 @@
     <dimen name="margin_x12">48dp</dimen>
     <dimen name="margin_x16">64dp</dimen>
 
+    <dimen name="dialog_corners_radius">@dimen/margin_x8</dimen>
+
 </resources>

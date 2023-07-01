@@ -4,9 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
+import androidx.navigation.findNavController
+import cg.viciousconcepts.taxesautomobiles.R
 import cg.viciousconcepts.taxesautomobiles.databinding.FragmentMainBinding
+import cg.viciousconcepts.taxesautomobiles.models.domain.Emissions
+import cg.viciousconcepts.taxesautomobiles.models.domain.EnginePower
+import cg.viciousconcepts.taxesautomobiles.models.domain.EngineType
+import cg.viciousconcepts.taxesautomobiles.models.domain.Region
+import cg.viciousconcepts.taxesautomobiles.models.domain.TaxInput
+import cg.viciousconcepts.taxesautomobiles.models.domain.VehicleType
+import cg.viciousconcepts.taxesautomobiles.ui.selection.SelectionFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.io.Serializable
 
 class MainFragment : Fragment() {
     private lateinit var _binding: FragmentMainBinding
@@ -28,21 +40,94 @@ class MainFragment : Fragment() {
         _binding.apply {
             lifecycleOwner = this@MainFragment
 
-            viewModel.taxRegistration.observe(viewLifecycleOwner) {
-                txtRegistrationTaxes.text = "%d €".format(it.toInt())
+            viewModel.taxInput.observe(viewLifecycleOwner) { tax ->
+                txtRegistrationTaxes.text = "%d €".format(tax.taxRegistration().toInt())
+                txtAnnualTaxes.text = "%d €".format(tax.taxAnnual().toInt())
+
+                btnRegion.text = getString(tax.region.stringId)
+                btnVehicleType.text = getString(tax.vehicleType.stringId)
+                btnEngineType.text = getString(tax.engineType.stringId)
+                btnAge.text = tax.age.toString()
+                btnEnginePower.text = getString(tax.enginePower.stringId)
+                btnEngineSize.text = tax.engineSize.toString()
+                btnEmissions.text = getString(tax.emissions.stringId)
+                btnChildren.text = tax.children.toString()
+
+                setFragmentResultListener(SelectionFragment.VALUE_FOR_RESULT) { requestKey, bundle ->
+                    bundle.takeIf {
+                        requestKey == SelectionFragment.VALUE_FOR_RESULT
+                                && it.containsKey(SelectionFragment.ARGUMENT_VALUE_TYPE)
+                                && it.containsKey(SelectionFragment.ARGUMENT_VALUE_SELECTED)
+                    }?.let {
+                        when (bundle.getSerializable(SelectionFragment.ARGUMENT_VALUE_TYPE) as TaxInput) {
+                            TaxInput.Region -> {
+                                (bundle.getSerializable(SelectionFragment.ARGUMENT_VALUE_SELECTED) as Region?)
+                                    ?.let { viewModel.updateTax(it) }
+                            }
+                            TaxInput.VehicleType -> {
+                                (bundle.getSerializable(SelectionFragment.ARGUMENT_VALUE_SELECTED) as VehicleType?)
+                                    ?.let { viewModel.updateTax(it) }
+                            }
+                            TaxInput.EngineType -> {
+                                (bundle.getSerializable(SelectionFragment.ARGUMENT_VALUE_SELECTED) as EngineType?)
+                                    ?.let { viewModel.updateTax(it) }
+                            }
+                            // TODO: age
+                            TaxInput.EnginePower -> {
+                                (bundle.getSerializable(SelectionFragment.ARGUMENT_VALUE_SELECTED) as EnginePower?)
+                                    ?.let { viewModel.updateTax(it) }
+                            }
+                            // TODO: engine size
+                            TaxInput.Emission -> {
+                                (bundle.getSerializable(SelectionFragment.ARGUMENT_VALUE_SELECTED) as Emissions?)
+                                    ?.let { viewModel.updateTax(it) }
+                            }
+                            // TODO: children count
+                            else -> {}
+                        }
+                    }
+                }
+
+                btnRegion.setOnClickListener {
+                    showSelection(TaxInput.Region, tax.region)
+                }
+
+                btnVehicleType.setOnClickListener {
+                    showSelection(TaxInput.VehicleType, tax.vehicleType)
+                }
+
+                btnEngineType.setOnClickListener {
+                    showSelection(TaxInput.EngineType, tax.engineType)
+                }
+
+                // TODO: age
+
+                btnEnginePower.setOnClickListener {
+                    showSelection(TaxInput.EnginePower, tax.enginePower)
+                }
+
+                // TODO: engine size
+
+                btnEmissions.setOnClickListener {
+                    showSelection(TaxInput.Emission, tax.emissions)
+                }
+
+                // TODO: children count
             }
 
-            viewModel.taxAnnual.observe(viewLifecycleOwner) {
-                txtAnnualTaxes.text = "%d €".format(it.toInt())
-            }
 
-            viewModel.taxInput.observe(viewLifecycleOwner) {
-                btnRegion.text = it.region.toString()
-                btnVehicleType.text = it.vehicleType.toString()
-                btnEngineType.text = it.engineType.toString()
-            }
-
-            viewModel.getTaxes()
         }
+    }
+
+    private fun showSelection(type: Serializable, value: Serializable) {
+        activity
+            ?.findNavController(R.id.nav_host_fragment_container)
+            ?.navigate(
+                R.id.action_mainFragment_to_selectionFragment,
+                bundleOf(
+                    SelectionFragment.ARGUMENT_VALUE_TYPE to type,
+                    SelectionFragment.ARGUMENT_VALUE_SELECTED to value
+                )
+            )
     }
 }
