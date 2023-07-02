@@ -63,6 +63,15 @@ class MainViewModel : ViewModel() {
         }
     }
 
+    fun updateAge(value: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            ensureActive()
+            _taxInput.postValue(
+                tax().copy(age = value)
+            )
+        }
+    }
+
     fun updateEnginePower(value: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             ensureActive()

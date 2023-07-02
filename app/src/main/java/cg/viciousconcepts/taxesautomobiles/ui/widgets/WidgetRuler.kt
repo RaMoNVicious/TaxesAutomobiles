@@ -102,7 +102,7 @@ class WidgetRuler(context: Context, attrs: AttributeSet) : LinearLayout(context,
 
             (lstValues.layoutManager as LinearLayoutManager).let {
                 val smoothScroller = CenterSmoothScroller(_binding.lstValues.context)
-                val selectedItem = max(1, _items.indexOf(selected))
+                val selectedItem = max(0, _items.indexOf(selected))
 
                 Log.d("Ruler", "Scrolling to item = $selected on position = $selectedItem")
                 smoothScroller.targetPosition = selectedItem
@@ -125,7 +125,7 @@ class WidgetRuler(context: Context, attrs: AttributeSet) : LinearLayout(context,
     inner class CenterSmoothScroller(context: Context) : LinearSmoothScroller(context) {
 
         override fun calculateDtToFit(viewStart: Int, viewEnd: Int, boxStart: Int, boxEnd: Int, snapPreference: Int): Int {
-            return (boxStart + (boxEnd - boxStart) / 2) - (viewStart + (viewEnd - viewStart) / 2)
+            return (boxStart + (boxEnd - boxStart) / 2) - (viewStart + (viewEnd - viewStart) / 2)  - _positionArrow
         }
     }
 

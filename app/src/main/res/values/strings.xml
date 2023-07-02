@@ -20,6 +20,9 @@
     <string name="engine_type_electric">Electric</string>
 
     <string name="age_title">Age</string>
+    <string name="age_value">%d year(s)</string>
+    <string name="age_value_lower">New</string>
+    <string name="age_value_greater">%d+ years</string>
 
     <string name="engine_size_title">Engine size</string>
     <string name="engine_size_value">%d cm³</string>

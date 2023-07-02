@@ -11,5 +11,4 @@ class EmissionRepository {
         private const val EMISSIONS_STEP = 1
     }
 
-
 }

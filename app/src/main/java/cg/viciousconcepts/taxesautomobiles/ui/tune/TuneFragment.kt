@@ -10,7 +10,6 @@ import cg.viciousconcepts.taxesautomobiles.databinding.FragmentTuneBinding
 import cg.viciousconcepts.taxesautomobiles.models.domain.EnginePower
 import cg.viciousconcepts.taxesautomobiles.models.domain.TaxInput
 import cg.viciousconcepts.taxesautomobiles.ui.main.MainFragment.Companion.VALUE_FOR_RESULT
-import cg.viciousconcepts.taxesautomobiles.ui.selection.SelectionFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -51,6 +50,25 @@ class TuneFragment : BottomSheetDialogFragment() {
         result.putSerializable(ARGUMENT_VALUE_TYPE, bundle.getSerializable(ARGUMENT_VALUE_TYPE))
 
         when (bundle.getSerializable(ARGUMENT_VALUE_TYPE) as TaxInput) {
+            TaxInput.Age -> {
+                _binding.txtTitle.text = getString(
+                    R.string.selection_title,
+                    getString(R.string.age_title)
+                )
+                viewModel.age.observe(viewLifecycleOwner) { items ->
+                    _binding.rlrValues.setItems(
+                        items = items,
+                        selected = bundle.getInt(ARGUMENT_VALUE_SELECTED),
+                        valueFormat = { value -> "%d".format(value) },
+                        tikHigh = 10,
+                        tikMiddle = 5,
+                        onSelected = { value ->
+                            result.putSerializable(ARGUMENT_VALUE_SELECTED, value)
+                        }
+                    )
+                }
+                viewModel.getAge()
+            }
             TaxInput.EnginePower -> {
                 _binding.txtTitle.text = getString(
                     R.string.selection_title,
@@ -70,7 +88,7 @@ class TuneFragment : BottomSheetDialogFragment() {
                         tikHigh = 50,
                         tikMiddle = 10,
                         onSelected = { value ->
-                            result.putSerializable(SelectionFragment.ARGUMENT_VALUE_SELECTED, value)
+                            result.putSerializable(ARGUMENT_VALUE_SELECTED, value)
                         }
                     )
                 }
@@ -95,7 +113,7 @@ class TuneFragment : BottomSheetDialogFragment() {
                         tikHigh = 1000,
                         tikMiddle = 500,
                         onSelected = { value ->
-                            result.putSerializable(SelectionFragment.ARGUMENT_VALUE_SELECTED, value)
+                            result.putSerializable(ARGUMENT_VALUE_SELECTED, value)
                         }
                     )
                 }
@@ -120,7 +138,7 @@ class TuneFragment : BottomSheetDialogFragment() {
                         tikHigh = 50,
                         tikMiddle = 10,
                         onSelected = { value ->
-                            result.putSerializable(SelectionFragment.ARGUMENT_VALUE_SELECTED, value)
+                            result.putSerializable(ARGUMENT_VALUE_SELECTED, value)
                         }
                     )
                 }

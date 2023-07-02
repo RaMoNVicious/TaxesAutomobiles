@@ -68,7 +68,9 @@ class MainFragment : Fragment() {
                     showSelection(TaxInput.EngineType, tax.engineType)
                 }
 
-                // TODO: age
+                btnAge.setOnClickListener {
+                    showTune(TaxInput.Age, tax.age)
+                }
 
                 btnEnginePower.setOnClickListener {
                     showTune(TaxInput.EnginePower, tax.enginePower)
@@ -108,7 +110,10 @@ class MainFragment : Fragment() {
                     (bundle.getSerializable(SelectionFragment.ARGUMENT_VALUE_SELECTED) as EngineType?)
                         ?.let { viewModel.updateTax(it) }
                 }
-                // TODO: age
+                TaxInput.Age -> {
+                    (bundle.getInt(SelectionFragment.ARGUMENT_VALUE_SELECTED))
+                        .let { viewModel.updateAge(it) }
+                }
                 TaxInput.EnginePower -> {
                     (bundle.getInt(SelectionFragment.ARGUMENT_VALUE_SELECTED))
                         .let { viewModel.updateEnginePower(it) }
