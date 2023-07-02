@@ -8,8 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>-->
 
+    <color name="main">#FF03DAC5</color>
+
     <color name="bg_main_light">#FAFAFA</color>
     <color name="bg_main_dark">#F0F0F0</color>
     <color name="bg_white">#ffffff</color>
+
+    <color name="ruler_value">@color/main</color>
+    <color name="ruler_value_disabled">#A0A0A0</color>
+    <color name="ruler_tick">#FFBB86FC</color>
 
 </resources>

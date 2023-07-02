@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ContentDescription">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="isDisabled"
+            type="java.lang.Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lstValues"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:visibility="@{isDisabled ? View.INVISIBLE : View.VISIBLE, default=visible}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/txtValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@{isDisabled ? @color/ruler_value_disabled : @color/ruler_value, default=@color/ruler_value}"
+            android:textSize="36sp"
+            android:text="@string/default_value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/lstValues" />
+
+        <ImageView
+            android:id="@+id/imgArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_ruler_pointer"
+            app:layout_constraintStart_toStartOf="@id/txtValue"
+            app:layout_constraintEnd_toEndOf="@id/txtValue"
+            app:layout_constraintTop_toBottomOf="@id/txtValue"
+            app:layout_constraintBottom_toBottomOf="@id/lstValues" />
+
+        <!--app:tint="@{isDisabled ? @color/ruler_value_disabled : @color/ruler_value, default=@color/ruler_value}"-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

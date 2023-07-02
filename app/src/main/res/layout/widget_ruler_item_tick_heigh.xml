@@ -1,0 +1,21 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="@dimen/ruler_item_width"
+        android:layout_height="@dimen/ruler_item_height"
+        android:paddingBottom="@dimen/margin_x1"
+        tools:ignore="ContentDescription">
+
+        <ImageView
+            android:layout_width="@dimen/ruler_tick_width"
+            android:layout_height="@dimen/ruler_tick_height_high"
+            android:src="@drawable/ic_ruler_tick"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

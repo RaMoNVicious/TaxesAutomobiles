@@ -16,6 +16,7 @@ import cg.viciousconcepts.taxesautomobiles.models.domain.EngineType
 import cg.viciousconcepts.taxesautomobiles.models.domain.Region
 import cg.viciousconcepts.taxesautomobiles.models.domain.TaxInput
 import cg.viciousconcepts.taxesautomobiles.models.domain.VehicleType
+import cg.viciousconcepts.taxesautomobiles.ui.main.MainFragment.Companion.VALUE_FOR_RESULT
 import cg.viciousconcepts.taxesautomobiles.ui.main.MainViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.chip.Chip
@@ -162,8 +163,6 @@ class SelectionFragment : BottomSheetDialogFragment() {
     }
 
     companion object {
-        const val VALUE_FOR_RESULT = "VALUE_FOR_RESULT"
-
         const val ARGUMENT_VALUE_TYPE = "ARGUMENT_VALUE_TYPE"
         const val ARGUMENT_VALUE_SELECTED = "ARGUMENT_VALUE_SELECTED"
     }

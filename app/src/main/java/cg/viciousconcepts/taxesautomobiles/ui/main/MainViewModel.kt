@@ -63,7 +63,7 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    fun updateTax(value: EnginePower) {
+    fun updateEnginePower(value: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             ensureActive()
             _taxInput.postValue(
@@ -72,7 +72,16 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    fun updateTax(value: Emissions) {
+    fun updateEngineSize(value: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            ensureActive()
+            _taxInput.postValue(
+                tax().copy(engineSize = value)
+            )
+        }
+    }
+
+    fun updateEmissions(value: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             ensureActive()
             _taxInput.postValue(

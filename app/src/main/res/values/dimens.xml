@@ -13,4 +13,12 @@
 
     <dimen name="dialog_corners_radius">@dimen/margin_x8</dimen>
 
+
+    <dimen name="ruler_item_width">10dp</dimen>
+    <dimen name="ruler_item_height">84dp</dimen>
+    <dimen name="ruler_tick_width">2dp</dimen>
+    <dimen name="ruler_tick_height_high">24dp</dimen>
+    <dimen name="ruler_tick_height_middle">16dp</dimen>
+    <dimen name="ruler_tick_height_low">8dp</dimen>
+
 </resources>
