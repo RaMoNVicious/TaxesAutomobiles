@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.setFragmentResult
 import cg.viciousconcepts.taxesautomobiles.R
 import cg.viciousconcepts.taxesautomobiles.databinding.FragmentTuneBinding
-import cg.viciousconcepts.taxesautomobiles.models.domain.EnginePower
 import cg.viciousconcepts.taxesautomobiles.models.domain.TaxInput
 import cg.viciousconcepts.taxesautomobiles.ui.main.MainFragment.Companion.VALUE_FOR_RESULT
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -59,7 +58,19 @@ class TuneFragment : BottomSheetDialogFragment() {
                     _binding.rlrValues.setItems(
                         items = items,
                         selected = bundle.getInt(ARGUMENT_VALUE_SELECTED),
-                        valueFormat = { value -> "%d".format(value) },
+                        valueFormat = { value ->
+                            when {
+                                value <= items[1] -> getString(R.string.age_value_lower)
+
+                                value >= items[items.count() - 2] ->
+                                    getString(
+                                        R.string.age_value_greater,
+                                        items[items.count() - 2]
+                                    )
+
+                                else -> getString(R.string.age_value, value)
+                            }
+                        },
                         tikHigh = 10,
                         tikMiddle = 5,
                         onSelected = { value ->
@@ -68,31 +79,6 @@ class TuneFragment : BottomSheetDialogFragment() {
                     )
                 }
                 viewModel.getAge()
-            }
-            TaxInput.EnginePower -> {
-                _binding.txtTitle.text = getString(
-                    R.string.selection_title,
-                    getString(R.string.engine_power_title)
-                )
-                viewModel.enginePower.observe(viewLifecycleOwner) { items ->
-                    _binding.rlrValues.setItems(
-                        items = items.map { it },
-                        selected = bundle.getInt(ARGUMENT_VALUE_SELECTED),
-                        valueFormat = { value ->
-                            formatEnginePower(
-                                value,
-                                items[1],
-                                items[items.count() - 3]
-                            )
-                        },
-                        tikHigh = 50,
-                        tikMiddle = 10,
-                        onSelected = { value ->
-                            result.putSerializable(ARGUMENT_VALUE_SELECTED, value)
-                        }
-                    )
-                }
-                viewModel.getEnginePower()
             }
             TaxInput.EngineSize -> {
                 _binding.txtTitle.text = getString(
@@ -104,11 +90,25 @@ class TuneFragment : BottomSheetDialogFragment() {
                         items = items.map { it },
                         selected = bundle.getInt(ARGUMENT_VALUE_SELECTED),
                         valueFormat = { value ->
-                            formatEngineSize(
-                                value,
-                                items[1],
-                                items[items.count() - 3]
-                            )
+                            when {
+                                value <= items[1] ->
+                                    getString(
+                                        R.string.engine_size_value_lower,
+                                        items[1]
+                                    )
+
+                                value >= items[items.count() - 2] ->
+                                    getString(
+                                        R.string.engine_size_value_greater,
+                                        items[items.count() - 2]
+                                    )
+
+                                else ->
+                                    getString(
+                                        R.string.engine_size_value,
+                                        value
+                                    )
+                            }
                         },
                         tikHigh = 1000,
                         tikMiddle = 500,
@@ -119,31 +119,6 @@ class TuneFragment : BottomSheetDialogFragment() {
                 }
                 viewModel.getEngineSizes()
             }
-            TaxInput.Emission -> {
-                _binding.txtTitle.text = getString(
-                    R.string.selection_title,
-                    getString(R.string.emission_title)
-                )
-                viewModel.emissions.observe(viewLifecycleOwner) { items ->
-                    _binding.rlrValues.setItems(
-                        items = items.map { it },
-                        selected = bundle.getInt(ARGUMENT_VALUE_SELECTED),
-                        valueFormat = { value ->
-                            formatEmissions(
-                                value,
-                                items[1],
-                                items[items.count() - 3]
-                            )
-                        },
-                        tikHigh = 50,
-                        tikMiddle = 10,
-                        onSelected = { value ->
-                            result.putSerializable(ARGUMENT_VALUE_SELECTED, value)
-                        }
-                    )
-                }
-                viewModel.getEmissions()
-            }
             else -> {}
         }
 
@@ -151,45 +126,6 @@ class TuneFragment : BottomSheetDialogFragment() {
             setFragmentResult(VALUE_FOR_RESULT, result)
             dismiss()
         }
-    }
-
-    private fun formatEnginePower(value: Int, min: Int, max: Int): String {
-        return getString(
-            if (value <= min) {
-                R.string.engine_power_value_lower
-            } else if (value > max) {
-                R.string.engine_power_value_greater
-            } else {
-                R.string.engine_power_value
-            },
-            value
-        )
-    }
-
-    private fun formatEngineSize(value: Int, min: Int, max: Int): String {
-        return getString(
-            if (value <= min) {
-                R.string.engine_size_value_lower
-            } else if (value > max) {
-                R.string.engine_size_value_greater
-            } else {
-                R.string.engine_size_value
-            },
-            value
-        )
-    }
-
-    private fun formatEmissions(value: Int, min: Int, max: Int): String {
-        return getString(
-            if (value <= min) {
-                R.string.emission_value_lower
-            } else if (value > max) {
-                R.string.emission_value_greater
-            } else {
-                R.string.emission_value
-            },
-            value
-        )
     }
 
     companion object {

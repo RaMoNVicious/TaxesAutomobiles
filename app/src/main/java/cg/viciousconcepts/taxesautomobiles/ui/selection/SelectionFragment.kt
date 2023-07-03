@@ -96,7 +96,6 @@ class SelectionFragment : BottomSheetDialogFragment() {
                 }
                 viewModel.getEngineType()
             }
-            // TODO: age
             TaxInput.EnginePower -> {
                 viewModel.enginePower.observe(viewLifecycleOwner) { items ->
                     showList(
@@ -109,7 +108,6 @@ class SelectionFragment : BottomSheetDialogFragment() {
                 }
                 viewModel.getEnginePower()
             }
-            // TODO: engine size
             TaxInput.Emission -> {
                 viewModel.emissions.observe(viewLifecycleOwner) { items ->
                     showList(
@@ -122,7 +120,6 @@ class SelectionFragment : BottomSheetDialogFragment() {
                 }
                 viewModel.getEmissions()
             }
-            // TODO: children count
             else -> {}
         }
 

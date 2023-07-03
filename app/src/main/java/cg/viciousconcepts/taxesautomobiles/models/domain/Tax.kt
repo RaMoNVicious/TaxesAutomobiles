@@ -5,9 +5,9 @@ data class Tax(
     val vehicleType: VehicleType = VehicleType.Car,
     val engineType: EngineType = EngineType.Petrol,
     val age: Int = 4,
-    val enginePower: Int = 100,
+    val enginePower: EnginePower = EnginePower.UpTo100,
     val engineSize: Int = 2500,
-    val emissions: Int = 175,
+    val emissions: Emissions = Emissions.UpTo145,
     val children: Int = 0
 ) {
     private val registrationData: List<Pair<Int, List<Pair<EnginePower, Float>>>> = listOf(
@@ -53,7 +53,7 @@ data class Tax(
         return registrationData
             .last { it.first <= age }
             .second
-            .last { enginePower in it.first.min..it.first.max }
+            .last { it.first == enginePower }
             .second
     }
 

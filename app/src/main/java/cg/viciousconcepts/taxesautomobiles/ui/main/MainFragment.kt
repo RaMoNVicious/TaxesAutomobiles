@@ -49,9 +49,12 @@ class MainFragment : Fragment() {
                 btnVehicleType.text = getString(tax.vehicleType.stringId)
                 btnEngineType.text = getString(tax.engineType.stringId)
                 btnAge.text = tax.age.toString()
-                btnEnginePower.text = getString(R.string.engine_power_value, tax.enginePower)
+                btnEnginePower.text = getString(
+                    R.string.engine_power_value,
+                    getString(tax.enginePower.stringId)
+                )
                 btnEngineSize.text = getString(R.string.engine_size_value, tax.engineSize)
-                btnEmissions.text = getString(R.string.emission_value, tax.emissions)
+                btnEmissions.text = getString(R.string.emission_value, getString(tax.emissions.stringId))
                 btnChildren.text = tax.children.toString()
 
                 setFragmentResultListener(VALUE_FOR_RESULT, ::onResult)
@@ -73,7 +76,7 @@ class MainFragment : Fragment() {
                 }
 
                 btnEnginePower.setOnClickListener {
-                    showTune(TaxInput.EnginePower, tax.enginePower)
+                    showSelection(TaxInput.EnginePower, tax.enginePower)
                 }
 
                 btnEngineSize.setOnClickListener {
@@ -81,7 +84,7 @@ class MainFragment : Fragment() {
                 }
 
                 btnEmissions.setOnClickListener {
-                    showTune(TaxInput.Emission, tax.emissions)
+                    showSelection(TaxInput.Emission, tax.emissions)
                 }
 
                 // TODO: children count
@@ -115,16 +118,16 @@ class MainFragment : Fragment() {
                         .let { viewModel.updateAge(it) }
                 }
                 TaxInput.EnginePower -> {
-                    (bundle.getInt(SelectionFragment.ARGUMENT_VALUE_SELECTED))
-                        .let { viewModel.updateEnginePower(it) }
+                    (bundle.getSerializable(SelectionFragment.ARGUMENT_VALUE_SELECTED) as EnginePower?)
+                        ?.let { viewModel.updateTax(it) }
                 }
                 TaxInput.EngineSize -> {
                     (bundle.getInt(TuneFragment.ARGUMENT_VALUE_SELECTED))
                         .let { viewModel.updateEngineSize(it) }
                 }
                 TaxInput.Emission -> {
-                    (bundle.getInt(TuneFragment.ARGUMENT_VALUE_SELECTED))
-                        .let { viewModel.updateEmissions(it) }
+                    (bundle.getSerializable(TuneFragment.ARGUMENT_VALUE_SELECTED) as Emissions?)
+                        ?.let { viewModel.updateTax(it) }
                 }
                 // TODO: children count
                 else -> {}

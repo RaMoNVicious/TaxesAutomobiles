@@ -63,6 +63,24 @@ class MainViewModel : ViewModel() {
         }
     }
 
+    fun updateTax(value: EnginePower) {
+        viewModelScope.launch(Dispatchers.IO) {
+            ensureActive()
+            _taxInput.postValue(
+                tax().copy(enginePower = value)
+            )
+        }
+    }
+
+    fun updateTax(value: Emissions) {
+        viewModelScope.launch(Dispatchers.IO) {
+            ensureActive()
+            _taxInput.postValue(
+                tax().copy(emissions = value)
+            )
+        }
+    }
+
     fun updateAge(value: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             ensureActive()
@@ -72,29 +90,11 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    fun updateEnginePower(value: Int) {
-        viewModelScope.launch(Dispatchers.IO) {
-            ensureActive()
-            _taxInput.postValue(
-                tax().copy(enginePower = value)
-            )
-        }
-    }
-
     fun updateEngineSize(value: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             ensureActive()
             _taxInput.postValue(
                 tax().copy(engineSize = value)
-            )
-        }
-    }
-
-    fun updateEmissions(value: Int) {
-        viewModelScope.launch(Dispatchers.IO) {
-            ensureActive()
-            _taxInput.postValue(
-                tax().copy(emissions = value)
             )
         }
     }
