@@ -42,9 +42,6 @@ class MainFragment : Fragment() {
             lifecycleOwner = this@MainFragment
 
             viewModel.taxInput.observe(viewLifecycleOwner) { tax ->
-                txtRegistrationTaxes.text = "%.2f €".format(tax.taxRegistration())
-                txtAnnualTaxes.text = "%d €".format(tax.taxAnnual().toInt())
-
                 btnRegion.text = getString(tax.region.stringId)
                 btnVehicleType.text = getString(tax.vehicleType.stringId)
                 btnEngineType.text = getString(tax.engineType.stringId)
@@ -88,8 +85,19 @@ class MainFragment : Fragment() {
                 }
 
                 // TODO: children count
+                //
+
+                viewModel.getTaxAnnual()
+                viewModel.getTaxRegistration()
             }
 
+            viewModel.taxAnnual.observe(viewLifecycleOwner) {
+                txtAnnualTaxes.text = "%.2f €".format(it)
+            }
+
+            viewModel.taxRegistration.observe(viewLifecycleOwner) {
+                txtRegistrationTaxes.text = "%.2f €".format(it)
+            }
 
         }
     }

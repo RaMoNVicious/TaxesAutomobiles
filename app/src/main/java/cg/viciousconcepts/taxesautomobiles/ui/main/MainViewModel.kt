@@ -1,5 +1,6 @@
 package cg.viciousconcepts.taxesautomobiles.ui.main
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,18 +11,23 @@ import cg.viciousconcepts.taxesautomobiles.models.domain.EngineType
 import cg.viciousconcepts.taxesautomobiles.models.domain.Region
 import cg.viciousconcepts.taxesautomobiles.models.domain.Tax
 import cg.viciousconcepts.taxesautomobiles.models.domain.VehicleType
+import cg.viciousconcepts.taxesautomobiles.repositories.TaxUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.launch
 
-class MainViewModel : ViewModel() {
+class MainViewModel(
+    private val taxUseCase: TaxUseCase
+) : ViewModel() {
 
     private val _taxInput: MutableLiveData<Tax> = MutableLiveData<Tax>()
     val taxInput: LiveData<Tax> = _taxInput
 
-    private val _regions: MutableLiveData<List<Region>> = MutableLiveData<List<Region>>()
-    val regions: LiveData<List<Region>> = _regions;
+    private val _taxAnnual: MutableLiveData<Float> = MutableLiveData<Float>()
+    val taxAnnual: LiveData<Float> = _taxAnnual
 
+    private val _taxRegistration: MutableLiveData<Float> = MutableLiveData<Float>()
+    val taxRegistration: LiveData<Float> = _taxRegistration
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
@@ -35,6 +41,26 @@ class MainViewModel : ViewModel() {
     }
 
     private fun tax() = _taxInput.value ?: Tax()
+
+    fun getTaxAnnual() {
+        viewModelScope.launch(Dispatchers.IO) {
+            ensureActive()
+
+            taxUseCase
+                .getAnnualTax(tax())
+                .collect { _taxAnnual.postValue(it) }
+        }
+    }
+
+    fun getTaxRegistration() {
+        viewModelScope.launch(Dispatchers.IO) {
+            ensureActive()
+
+            taxUseCase
+                .getRegistrationTax(tax())
+                .collect { _taxRegistration.postValue(it) }
+        }
+    }
 
     fun updateTax(value: Region) {
         viewModelScope.launch(Dispatchers.IO) {
