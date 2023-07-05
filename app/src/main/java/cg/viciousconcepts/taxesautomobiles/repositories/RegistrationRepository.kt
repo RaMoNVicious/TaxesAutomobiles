@@ -5,8 +5,11 @@ import kotlinx.coroutines.flow.flow
 
 class RegistrationRepository {
 
-    fun getRegistrationDate() =
+    fun getRegistrationData() =
         flow { emit(registrationData) }
+
+    fun getLpgRegistrationData() =
+        flow { emit(lpgRegistrationAdd) }
 
     companion object {
         private val registrationData = listOf(
@@ -46,6 +49,12 @@ class RegistrationRepository {
                     Pair(Pair(EnginePower.MoreThan155, Int.MAX_VALUE), 3727.2f),
                 )
             ),
+        )
+
+        private val lpgRegistrationAdd = listOf(
+            Pair(7, 89.16f),
+            Pair(13, 148.68f),
+            Pair(Int.MAX_VALUE, 208.2f),
         )
     }
 }
