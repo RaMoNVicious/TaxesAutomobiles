@@ -13,9 +13,35 @@ class TaxUseCase(
 ) : BaseUseCase {
 
     fun getAnnualTax(tax: Tax): Flow<Float> {
-        // TODO: calculate
         return flow {
-            emit(0f)
+            when (tax.engineType) {
+                EngineType.Petrol, EngineType.Diesel, EngineType.Hybrid, EngineType.LPG -> {
+                    engineSizeRepository
+                        .getEngineCv(tax.engineSize)
+                        .zip(registrationRepository.getAnnualData()) { cv, annualData ->
+                            Pair(cv, annualData)
+                        }
+                        .zip(registrationRepository.getLpgAnnualData()) { (cv, annual), lpgAnnual ->
+                            val byEngineSize = annual
+                                .first { tax.engineSize in it.first.first }
+                                .second
+
+                            val byLpg = if (tax.engineType == EngineType.LPG)
+                                lpgAnnual
+                                    .first { cv <= it.first }
+                                    .second
+                            else
+                                0f
+
+                            byEngineSize + byLpg
+                        }.collect {
+                            emit(it)
+                        }
+                }
+
+                EngineType.Electric -> emit(9999.99f)
+            }
+
         }
     }
 
@@ -23,9 +49,10 @@ class TaxUseCase(
         return flow {
             when (tax.engineType) {
                 EngineType.Petrol, EngineType.Diesel, EngineType.Hybrid, EngineType.LPG -> {
+                    // TODO: FIXME:
                     registrationRepository
                         .getRegistrationData()
-                        .zip(registrationRepository.getLpgRegistrationData()) { registration, registrationLpg ->
+                        .zip(registrationRepository.getLpgAnnualData()) { registration, registrationLpg ->
                             Pair(registration, registrationLpg)
                         }
                         .zip(engineSizeRepository.getEngineCv(tax.engineSize)) { registrationTable, cv ->
