@@ -8,4 +8,5 @@ enum class TaxInput {
     EnginePower,
     EngineSize,
     Emission,
+    Children,
 }

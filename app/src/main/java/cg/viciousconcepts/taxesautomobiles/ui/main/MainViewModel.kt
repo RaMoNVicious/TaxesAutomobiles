@@ -124,4 +124,13 @@ class MainViewModel(
             )
         }
     }
+
+    fun updateChildren(value: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            ensureActive()
+            _taxInput.postValue(
+                tax().copy(children = value)
+            )
+        }
+    }
 }

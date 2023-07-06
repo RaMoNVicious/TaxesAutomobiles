@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.flow
 
 class EmissionRepository {
 
-    fun getEmissions() =
+    fun getData() =
         flow {
             emit(
                 listOf(

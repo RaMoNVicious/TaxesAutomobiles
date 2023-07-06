@@ -4,26 +4,26 @@ import kotlinx.coroutines.flow.flow
 
 class EngineSizeRepository {
 
-    fun getEngineSize() =
-        flow { emit(engineSize) }
+    fun getData() =
+        flow { emit(values) }
 
 
-    fun getEngineCv(size: Int) =
+    fun getCV(size: Int) =
         flow {
             emit(
-                (engineToCv.firstOrNull { size in it.first } ?: engineToCv.first()).second
+                (sizeToCv.firstOrNull { size in it.first } ?: sizeToCv.first()).second
             )
         }
 
     companion object {
-        private const val ENGINE_SIZE_MIN = 400
-        private const val ENGINE_SIZE_MAX = 7600
-        private const val ENGINE_SIZE_STEP = 100
+        private const val VALUE_MIN = 400
+        private const val VALUE_MAX = 7600
+        private const val VALUE_STEP = 100
 
-        private val engineSize =
-            (ENGINE_SIZE_MIN..ENGINE_SIZE_MAX step ENGINE_SIZE_STEP).toList()
+        private val values =
+            (VALUE_MIN..VALUE_MAX step VALUE_STEP).toList()
 
-        private val engineToCv = listOf(
+        private val sizeToCv = listOf(
             Pair(0..750, 4),
             Pair(751..950, 5),
             Pair(951..1150, 6),

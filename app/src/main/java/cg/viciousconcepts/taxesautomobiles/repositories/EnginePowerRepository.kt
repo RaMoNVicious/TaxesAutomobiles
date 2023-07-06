@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.flow
 
 class EnginePowerRepository {
 
-    fun getEnginePower() =
+    fun getData() =
         flow {
             emit(
                 listOf(

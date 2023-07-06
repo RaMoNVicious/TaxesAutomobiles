@@ -16,7 +16,6 @@ import cg.viciousconcepts.taxesautomobiles.repositories.RegionRepository
 import cg.viciousconcepts.taxesautomobiles.repositories.VehicleTypeRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ensureActive
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class SelectionViewModel(
@@ -77,7 +76,7 @@ class SelectionViewModel(
             ensureActive()
 
             enginePowerRepository
-                .getEnginePower()
+                .getData()
                 .collect { _enginePower.postValue(it) }
         }
     }
@@ -87,7 +86,7 @@ class SelectionViewModel(
             ensureActive()
 
             emissionsRepository
-                .getEmissions()
+                .getData()
                 .collect { _emissions.postValue(it) }
         }
     }

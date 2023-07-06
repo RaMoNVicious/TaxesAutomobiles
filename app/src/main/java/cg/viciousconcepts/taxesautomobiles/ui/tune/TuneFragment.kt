@@ -119,6 +119,39 @@ class TuneFragment : BottomSheetDialogFragment() {
                 }
                 viewModel.getEngineSizes()
             }
+            TaxInput.Children -> {
+                _binding.txtTitle.text = getString(
+                    R.string.selection_title,
+                    getString(R.string.children_title)
+                )
+                viewModel.children.observe(viewLifecycleOwner) { items ->
+                    _binding.rlrValues.setItems(
+                        items = items.map { it },
+                        selected = bundle.getInt(ARGUMENT_VALUE_SELECTED),
+                        valueFormat = { value ->
+                            when {
+                                value <= items[1] ->
+                                    getString(R.string.children_value_lower)
+
+                                value >= items[items.count() - 2] ->
+                                    getString(R.string.children_value_greater)
+
+                                else ->
+                                    getString(
+                                        R.string.children_value,
+                                        value
+                                    )
+                            }
+                        },
+                        tikHigh = 10,
+                        tikMiddle = 2,
+                        onSelected = { value ->
+                            result.putSerializable(ARGUMENT_VALUE_SELECTED, value)
+                        }
+                    )
+                }
+                viewModel.getChildren()
+            }
             else -> {}
         }
 

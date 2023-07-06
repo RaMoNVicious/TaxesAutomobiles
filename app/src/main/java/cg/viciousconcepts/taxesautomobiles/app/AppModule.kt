@@ -2,6 +2,7 @@ package cg.viciousconcepts.taxesautomobiles.app
 
 import cg.viciousconcepts.taxesautomobiles.ui.main.MainViewModel
 import cg.viciousconcepts.taxesautomobiles.repositories.AgeRepository
+import cg.viciousconcepts.taxesautomobiles.repositories.ChildrenRepository
 import cg.viciousconcepts.taxesautomobiles.repositories.EmissionRepository
 import cg.viciousconcepts.taxesautomobiles.repositories.EnginePowerRepository
 import cg.viciousconcepts.taxesautomobiles.repositories.EngineSizeRepository
@@ -18,7 +19,7 @@ import org.koin.dsl.module
 val appModule = module {
     viewModel { MainViewModel(get()) }
     viewModel { SelectionViewModel(get(), get(), get(), get(), get()) }
-    viewModel { TuneViewModel(get(), get()) }
+    viewModel { TuneViewModel(get(), get(), get()) }
 
     single { RegionRepository() }
     single { VehicleTypeRepository() }
@@ -27,6 +28,7 @@ val appModule = module {
     single { EnginePowerRepository() }
     single { EngineSizeRepository() }
     single { EmissionRepository() }
+    single { ChildrenRepository() }
     single { RegistrationRepository() }
 
     factory { TaxUseCase(get(), get()) }

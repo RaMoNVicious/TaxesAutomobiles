@@ -59,6 +59,10 @@
     <string name="emission_up_to_255">246 – 255</string>
     <string name="emission_more_than_255">255+</string>
 
+    <string name="children_title">Children</string>
+    <string name="children_value">%d</string>
+    <string name="children_value_lower">No</string>
+    <string name="children_value_greater">4+</string>
 
 
     <string name="default_value">0</string>

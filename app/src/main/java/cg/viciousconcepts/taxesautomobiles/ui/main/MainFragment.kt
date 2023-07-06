@@ -84,8 +84,9 @@ class MainFragment : Fragment() {
                     showSelection(TaxInput.Emission, tax.emissions)
                 }
 
-                // TODO: children count
-                //
+                btnChildren.setOnClickListener {
+                    showTune(TaxInput.Children, tax.children)
+                }
 
                 viewModel.getTaxAnnual()
                 viewModel.getTaxRegistration()
@@ -137,8 +138,10 @@ class MainFragment : Fragment() {
                     (bundle.getSerializable(TuneFragment.ARGUMENT_VALUE_SELECTED) as Emissions?)
                         ?.let { viewModel.updateTax(it) }
                 }
-                // TODO: children count
-                else -> {}
+                TaxInput.Children -> {
+                    (bundle.getInt(SelectionFragment.ARGUMENT_VALUE_SELECTED))
+                        .let { viewModel.updateChildren(it) }
+                }
             }
         }
     }

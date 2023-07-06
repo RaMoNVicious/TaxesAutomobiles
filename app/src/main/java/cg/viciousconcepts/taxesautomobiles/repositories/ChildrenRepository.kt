@@ -2,7 +2,8 @@ package cg.viciousconcepts.taxesautomobiles.repositories
 
 import kotlinx.coroutines.flow.flow
 
-class AgeRepository {
+class ChildrenRepository {
+
     fun getData() =
         flow {
             emit(
@@ -12,7 +13,8 @@ class AgeRepository {
 
     companion object {
         private const val VALUE_MIN = -1
-        private const val VALUE_MAX = 31
+        private const val VALUE_MAX = 5
         private const val VALUE_STEP = 1
     }
+
 }

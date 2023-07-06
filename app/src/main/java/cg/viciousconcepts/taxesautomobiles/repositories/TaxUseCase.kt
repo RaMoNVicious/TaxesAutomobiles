@@ -3,9 +3,10 @@ package cg.viciousconcepts.taxesautomobiles.repositories
 import cg.viciousconcepts.taxesautomobiles.models.domain.EngineType
 import cg.viciousconcepts.taxesautomobiles.models.domain.Tax
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.zip
-import java.lang.Float.max
 
 class TaxUseCase(
     private val engineSizeRepository: EngineSizeRepository,
@@ -17,7 +18,7 @@ class TaxUseCase(
             when (tax.engineType) {
                 EngineType.Petrol, EngineType.Diesel, EngineType.Hybrid, EngineType.LPG -> {
                     engineSizeRepository
-                        .getEngineCv(tax.engineSize)
+                        .getCV(tax.engineSize)
                         .zip(registrationRepository.getAnnualData()) { cv, annualData ->
                             Pair(cv, annualData)
                         }
@@ -39,7 +40,18 @@ class TaxUseCase(
                         }
                 }
 
-                EngineType.Electric -> emit(9999.99f)
+                EngineType.Electric -> {
+                    registrationRepository
+                        .getAnnualData()
+                        .collect { items ->
+                            items
+                                .first()
+                                .second
+                                .let {
+                                    emit(it)
+                                }
+                        }
+                }
             }
 
         }
@@ -49,36 +61,57 @@ class TaxUseCase(
         return flow {
             when (tax.engineType) {
                 EngineType.Petrol, EngineType.Diesel, EngineType.Hybrid, EngineType.LPG -> {
-                    // TODO: FIXME:
                     registrationRepository
                         .getRegistrationData()
-                        .zip(registrationRepository.getLpgAnnualData()) { registration, registrationLpg ->
-                            Pair(registration, registrationLpg)
+                        .zip(registrationRepository.getEmissionData()) { registration, emission ->
+                            Pair(registration, emission)
                         }
-                        .zip(engineSizeRepository.getEngineCv(tax.engineSize)) { registrationTable, cv ->
-                            max(
-                                registrationTable
-                                    .first
+                        .zip(engineSizeRepository.getCV(tax.engineSize)) { (registration, emissions), cv ->
+                            val emission = emissions
+                                .map { it.first }
+                                .let {
+                                    it[kotlin.math.max(
+                                        0,
+                                        it.indexOf(tax.emissions) - when (tax.children) {
+                                            3 -> 1
+                                            4 -> 2
+                                            else -> 0
+                                        }
+                                    )]
+                                }
+
+                            kotlin.math.max(
+                                registration
                                     .last { it.first <= tax.age }
                                     .second
-                                    .last { it.first.first == tax.enginePower }
+                                    .first { it.first.first == tax.enginePower }
                                     .second,
-                                registrationTable
-                                    .first
+                                registration
                                     .last { it.first <= tax.age }
                                     .second
                                     .first { cv <= it.first.second }
                                     .second
-                            ) + if (tax.engineType == EngineType.LPG)
-                                registrationTable.second.first { cv <= it.first }.second
-                            else
-                                0f
+                            ) + emissions
+                                .first { it.first == emission }
+                                .second
                         }.collect {
                             emit(it)
                         }
                 }
 
-                else -> emit(0f)
+                EngineType.Electric -> {
+                    registrationRepository
+                        .getRegistrationData()
+                        .collect { registration ->
+                            emit(
+                                registration
+                                    .first()
+                                    .second
+                                    .first()
+                                    .second
+                            )
+                        }
+                }
             }
 
         }
