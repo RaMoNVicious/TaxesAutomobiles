@@ -6,6 +6,9 @@
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowBackground">@drawable/background_main</item>
         <item name="android:windowLightStatusBar">true</item>
+
+        <item name="android:fontFamily">@font/roboto_slab_light</item>
+        <item name="android:textColor">@color/text_normal</item>
     </style>
 
     <style name="BottomSheetPopupTheme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
@@ -15,5 +18,44 @@
     <style name="BottomSheetPopup" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/background_dialog</item>
     </style>
+
+    <style name="Label" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/roboto_slab_light</item>
+        <item name="android:textColor">@color/text_label</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:lines">1</item>
+    </style>
+
+    <style name="Value" parent="Label">
+        <item name="android:fontFamily">@font/roboto_slab_medium</item>
+        <item name="android:textColor">@color/text_value</item>
+    </style>
+
+    <style name="Label.TaxInput" parent="Label">
+    </style>
+
+    <style name="Label.TaxInput.Value" parent="Value">
+        <item name="android:textColor"></item>
+    </style>
+
+    <style name="Label.Taxes" parent="Label">
+        <item name="android:textSize">@dimen/text_tax_label_size</item>
+    </style>
+    
+    <style name="Label.Taxes.Value" parent="Value">
+        <item name="android:textSize">@dimen/text_tax_label_size</item>
+    </style>
+
+    <style name="ChipValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/margin_x4</item>
+        <item name="chipStartPadding">@dimen/margin_x2</item>
+        <item name="chipEndPadding">@dimen/margin_x2</item>
+        <item name="android:backgroundTint">@color/accent</item>
+    </style>
+
 
 </resources>

@@ -13,6 +13,9 @@
 
     <dimen name="dialog_corners_radius">@dimen/margin_x8</dimen>
 
+    <dimen name="text_size">18sp</dimen>
+    <dimen name="text_tax_label_size">22sp</dimen>
+
 
     <dimen name="ruler_item_width">16dp</dimen>
     <dimen name="ruler_item_height">84dp</dimen>

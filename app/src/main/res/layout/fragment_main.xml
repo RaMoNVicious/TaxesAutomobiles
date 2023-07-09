@@ -6,91 +6,91 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <View
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/pnlTaxes"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_x4"
-            android:layout_marginBottom="-32dp"
             android:background="@drawable/background_header"
-            android:elevation="@dimen/margin_x4"
-            app:layout_constraintBottom_toBottomOf="@id/lblRegistrationTaxes"
+            android:elevation="@dimen/margin_x8"
+            android:shadowColor="#ff0000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/lblTitle"
+            <TextView
+                android:id="@+id/lblTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_x4"
+                android:text="@string/app_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/lblAnnualTaxes"
+                style="@style/Label.Taxes"
+                android:layout_marginStart="@dimen/margin_x8"
+                android:layout_marginTop="@dimen/margin_x8"
+                android:text="@string/tax_annual"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lblTitle" />
+
+            <TextView
+                android:id="@+id/txtAnnualTaxes"
+                style="@style/Label.Taxes.Value"
+                android:layout_marginEnd="@dimen/margin_x8"
+                android:text="@string/tax_value_default"
+                app:layout_constraintBaseline_toBaselineOf="@id/lblAnnualTaxes"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/lblRegistrationTaxes"
+                style="@style/Label.Taxes"
+                android:layout_marginStart="@dimen/margin_x8"
+                android:layout_marginTop="@dimen/margin_x3"
+                android:layout_marginBottom="@dimen/margin_x8"
+                android:text="@string/tax_registration"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lblAnnualTaxes" />
+
+            <TextView
+                android:id="@+id/txtRegistrationTaxes"
+                style="@style/Label.Taxes.Value"
+                android:layout_marginEnd="@dimen/margin_x8"
+                android:text="@string/tax_value_default"
+                app:layout_constraintBaseline_toBaselineOf="@id/lblRegistrationTaxes"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/guideValues"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_x4"
-            android:elevation="@dimen/margin_x4"
-            android:text="@string/app_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/lblAnnualTaxes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x12"
-            android:layout_marginTop="@dimen/margin_x4"
-            android:elevation="@dimen/margin_x4"
-            android:text="annual_taxes"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lblTitle" />
-
-        <TextView
-            android:id="@+id/txtAnnualTaxes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_x4"
-            android:layout_marginEnd="@dimen/margin_x12"
-            android:elevation="@dimen/margin_x4"
-            android:text="9'999 €"
-            app:layout_constraintBaseline_toBaselineOf="@id/lblAnnualTaxes"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <TextView
-            android:id="@+id/lblRegistrationTaxes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x12"
-            android:layout_marginTop="@dimen/margin_x2"
-            android:elevation="@dimen/margin_x4"
-            android:text="registration_taxes"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lblAnnualTaxes" />
-
-        <TextView
-            android:id="@+id/txtRegistrationTaxes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_x4"
-            android:layout_marginEnd="@dimen/margin_x12"
-            android:elevation="@dimen/margin_x4"
-            android:text="99'999 €"
-            app:layout_constraintBaseline_toBaselineOf="@id/lblRegistrationTaxes"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:barrierDirection="right"
+            app:constraint_referenced_ids="lblRegion,lblVehicleType,lblEngineType,lblAge,lblEnginePower,lblEngineSize,lblEmissions,lblChildren" />
 
         <TextView
             android:id="@+id/lblRegion"
+            style="@style/Label.TaxInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_x8"
-            android:layout_marginTop="@dimen/margin_x16"
+            android:layout_marginTop="@dimen/margin_x8"
             android:text="@string/region_title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lblRegistrationTaxes" />
+            app:layout_constraintTop_toBottomOf="@id/pnlTaxes" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/btnRegion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x4"
-            android:text="selected_region"
+            style="@style/ChipValue"
+            android:text="@string/region_value_default"
+            android:textAppearance="@style/Label.TaxInput.Value"
             app:layout_constraintBaseline_toBaselineOf="@id/lblRegion"
-            app:layout_constraintStart_toEndOf="@id/lblRegion" />
+            app:layout_constraintStart_toEndOf="@id/guideValues" />
 
         <TextView
             android:id="@+id/lblVehicleType"
@@ -104,12 +104,11 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/btnVehicleType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x4"
-            android:text="selected_vehicle_type"
+            style="@style/ChipValue"
+            android:text="@string/vehicle_type_value_default"
+            android:textAppearance="@style/Label.TaxInput.Value"
             app:layout_constraintBaseline_toBaselineOf="@id/lblVehicleType"
-            app:layout_constraintStart_toEndOf="@id/lblVehicleType" />
+            app:layout_constraintStart_toEndOf="@id/guideValues" />
 
         <TextView
             android:id="@+id/lblEngineType"
@@ -123,12 +122,11 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/btnEngineType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x4"
-            android:text="selected_engine_type"
+            style="@style/ChipValue"
+            android:text="@string/engine_type_value_default"
+            android:textAppearance="@style/Label.TaxInput.Value"
             app:layout_constraintBaseline_toBaselineOf="@id/lblEngineType"
-            app:layout_constraintStart_toEndOf="@id/lblEngineType" />
+            app:layout_constraintStart_toEndOf="@id/guideValues" />
 
         <TextView
             android:id="@+id/lblAge"
@@ -142,12 +140,11 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/btnAge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x4"
-            android:text="selected_age"
+            style="@style/ChipValue"
+            android:text="@string/age_value_default"
+            android:textAppearance="@style/Label.TaxInput.Value"
             app:layout_constraintBaseline_toBaselineOf="@id/lblAge"
-            app:layout_constraintStart_toEndOf="@id/lblAge" />
+            app:layout_constraintStart_toEndOf="@id/guideValues" />
 
         <TextView
             android:id="@+id/lblEnginePower"
@@ -161,12 +158,11 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/btnEnginePower"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x4"
-            android:text="selected_engine_power"
+            style="@style/ChipValue"
+            android:text="@string/engine_power_value_default"
+            android:textAppearance="@style/Label.TaxInput.Value"
             app:layout_constraintBaseline_toBaselineOf="@id/lblEnginePower"
-            app:layout_constraintStart_toEndOf="@id/lblEnginePower" />
+            app:layout_constraintStart_toEndOf="@id/guideValues" />
 
         <TextView
             android:id="@+id/lblEngineSize"
@@ -180,12 +176,11 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/btnEngineSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x4"
-            android:text="selected_engine_size"
+            style="@style/ChipValue"
+            android:text="@string/engine_size_value_default"
+            android:textAppearance="@style/Label.TaxInput.Value"
             app:layout_constraintBaseline_toBaselineOf="@id/lblEngineSize"
-            app:layout_constraintStart_toEndOf="@id/lblEngineSize" />
+            app:layout_constraintStart_toEndOf="@id/guideValues" />
 
         <TextView
             android:id="@+id/lblEmissions"
@@ -199,12 +194,11 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/btnEmissions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x4"
-            android:text="selected_emissions"
+            style="@style/ChipValue"
+            android:text="@string/emission_value_default"
+            android:textAppearance="@style/Label.TaxInput.Value"
             app:layout_constraintBaseline_toBaselineOf="@id/lblEmissions"
-            app:layout_constraintStart_toEndOf="@id/lblEmissions" />
+            app:layout_constraintStart_toEndOf="@id/guideValues" />
 
         <TextView
             android:id="@+id/lblChildren"
@@ -218,12 +212,11 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/btnChildren"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x4"
-            android:text="selected_children_coung"
+            style="@style/ChipValue"
+            android:text="@string/children_value_default"
+            android:textAppearance="@style/Label.TaxInput.Value"
             app:layout_constraintBaseline_toBaselineOf="@id/lblChildren"
-            app:layout_constraintStart_toEndOf="@id/lblChildren" />
+            app:layout_constraintStart_toEndOf="@id/guideValues" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

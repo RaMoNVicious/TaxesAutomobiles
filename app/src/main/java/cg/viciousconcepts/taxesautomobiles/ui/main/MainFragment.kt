@@ -45,14 +45,34 @@ class MainFragment : Fragment() {
                 btnRegion.text = getString(tax.region.stringId)
                 btnVehicleType.text = getString(tax.vehicleType.stringId)
                 btnEngineType.text = getString(tax.engineType.stringId)
-                btnAge.text = tax.age.toString()
+                btnAge.text = when {
+                    tax.age < 1 -> getString(R.string.age_value_lower)
+                    tax.age >= 30 -> getString(R.string.age_value_greater, tax.age)
+                    else -> getString(R.string.age_value, tax.age)
+                }
                 btnEnginePower.text = getString(
                     R.string.engine_power_value,
                     getString(tax.enginePower.stringId)
                 )
-                btnEngineSize.text = getString(R.string.engine_size_value, tax.engineSize)
+                btnEngineSize.text = when {
+                    tax.engineSize <= 500 -> getString(
+                        R.string.engine_size_value_lower,
+                        tax.engineSize
+                    )
+
+                    tax.engineSize >= 7500 -> getString(
+                        R.string.engine_size_value_greater,
+                        tax.engineSize
+                    )
+
+                    else -> getString(R.string.engine_size_value, tax.engineSize)
+                }
                 btnEmissions.text = getString(R.string.emission_value, getString(tax.emissions.stringId))
-                btnChildren.text = tax.children.toString()
+                btnChildren.text = when {
+                    tax.children == 0 -> getString(R.string.children_value_lower)
+                    tax.children >= 4 -> getString(R.string.children_value_greater, tax.children)
+                    else -> getString(R.string.children_value, tax.children)
+                }
 
                 setFragmentResultListener(VALUE_FOR_RESULT, ::onResult)
 
@@ -93,11 +113,11 @@ class MainFragment : Fragment() {
             }
 
             viewModel.taxAnnual.observe(viewLifecycleOwner) {
-                txtAnnualTaxes.text = "%.2f €".format(it)
+                txtAnnualTaxes.text = getString(R.string.tax_value, it)
             }
 
             viewModel.taxRegistration.observe(viewLifecycleOwner) {
-                txtRegistrationTaxes.text = "%.2f €".format(it)
+                txtRegistrationTaxes.text = getString(R.string.tax_value, it)
             }
 
         }
