@@ -76,10 +76,6 @@
         <TextView
             android:id="@+id/lblRegion"
             style="@style/Label.TaxInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x8"
-            android:layout_marginTop="@dimen/margin_x8"
             android:text="@string/region_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pnlTaxes" />
@@ -94,10 +90,7 @@
 
         <TextView
             android:id="@+id/lblVehicleType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x8"
-            android:layout_marginTop="@dimen/margin_x8"
+            style="@style/Label.TaxInput"
             android:text="@string/vehicle_type_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lblRegion" />
@@ -112,10 +105,7 @@
 
         <TextView
             android:id="@+id/lblEngineType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x8"
-            android:layout_marginTop="@dimen/margin_x8"
+            style="@style/Label.TaxInput"
             android:text="@string/engine_type_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lblVehicleType" />
@@ -130,10 +120,7 @@
 
         <TextView
             android:id="@+id/lblAge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x8"
-            android:layout_marginTop="@dimen/margin_x8"
+            style="@style/Label.TaxInput"
             android:text="@string/age_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lblEngineType" />
@@ -148,10 +135,7 @@
 
         <TextView
             android:id="@+id/lblEnginePower"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x8"
-            android:layout_marginTop="@dimen/margin_x8"
+            style="@style/Label.TaxInput"
             android:text="@string/engine_power_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lblAge" />
@@ -166,10 +150,7 @@
 
         <TextView
             android:id="@+id/lblEngineSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x8"
-            android:layout_marginTop="@dimen/margin_x8"
+            style="@style/Label.TaxInput"
             android:text="@string/engine_size_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lblEnginePower" />
@@ -184,10 +165,7 @@
 
         <TextView
             android:id="@+id/lblEmissions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x8"
-            android:layout_marginTop="@dimen/margin_x8"
+            style="@style/Label.TaxInput"
             android:text="@string/emission_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lblEngineSize" />
@@ -202,10 +180,7 @@
 
         <TextView
             android:id="@+id/lblChildren"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_x8"
-            android:layout_marginTop="@dimen/margin_x8"
+            style="@style/Label.TaxInput"
             android:text="@string/children_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lblEmissions" />

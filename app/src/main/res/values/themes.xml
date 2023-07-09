@@ -34,10 +34,11 @@
     </style>
 
     <style name="Label.TaxInput" parent="Label">
+        <item name="android:layout_marginStart">@dimen/margin_x8</item>
+        <item name="android:layout_marginTop">@dimen/margin_x8</item>
     </style>
 
     <style name="Label.TaxInput.Value" parent="Value">
-        <item name="android:textColor"></item>
     </style>
 
     <style name="Label.Taxes" parent="Label">
