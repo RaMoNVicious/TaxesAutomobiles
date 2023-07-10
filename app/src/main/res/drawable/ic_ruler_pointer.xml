@@ -3,7 +3,7 @@
 
     <size android:width="@dimen/ruler_tick_width"/>
 
-    <solid android:color="@color/main"/>
+    <solid android:color="@color/accent"/>
 
     <corners android:radius="@dimen/ruler_tick_width"/>
 

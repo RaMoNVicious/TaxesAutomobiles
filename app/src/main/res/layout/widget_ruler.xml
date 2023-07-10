@@ -38,6 +38,7 @@
             android:textColor="@{isDisabled ? @color/ruler_value_disabled : @color/ruler_value, default=@color/ruler_value}"
             android:textSize="36sp"
             android:text="@string/default_value"
+            android:fontFamily="@font/roboto_slab_medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/lstValues" />

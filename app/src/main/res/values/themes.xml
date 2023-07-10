@@ -33,18 +33,23 @@
         <item name="android:textColor">@color/text_value</item>
     </style>
 
+    <style name="Label.AppTitle" parent="Label">
+        <item name="android:fontFamily">@font/roboto_slab_medium</item>
+        <item name="android:layout_height">@dimen/title_height</item>
+        <item name="android:gravity">center</item>
+    </style>
+
     <style name="Label.TaxInput" parent="Label">
         <item name="android:layout_marginStart">@dimen/margin_x8</item>
         <item name="android:layout_marginTop">@dimen/margin_x8</item>
     </style>
 
-    <style name="Label.TaxInput.Value" parent="Value">
-    </style>
+    <style name="Label.TaxInput.Value" parent="Value" />
 
     <style name="Label.Taxes" parent="Label">
         <item name="android:textSize">@dimen/text_tax_label_size</item>
     </style>
-    
+
     <style name="Label.Taxes.Value" parent="Value">
         <item name="android:textSize">@dimen/text_tax_label_size</item>
     </style>
@@ -56,6 +61,7 @@
         <item name="chipStartPadding">@dimen/margin_x2</item>
         <item name="chipEndPadding">@dimen/margin_x2</item>
         <item name="android:backgroundTint">@color/accent</item>
+        <item name="android:textAppearance">@style/Label.TaxInput.Value</item>
     </style>
 
 

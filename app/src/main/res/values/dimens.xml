@@ -11,6 +11,9 @@
     <dimen name="margin_x12">48dp</dimen>
     <dimen name="margin_x16">64dp</dimen>
 
+    <dimen name="title_height">48dp</dimen>
+    <dimen name="title_icon_size">24dp</dimen>
+
     <dimen name="dialog_corners_radius">@dimen/margin_x8</dimen>
 
     <dimen name="text_size">18sp</dimen>

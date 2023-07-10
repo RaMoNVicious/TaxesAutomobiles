@@ -18,14 +18,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="@dimen/title_icon_size"
+                android:layout_height="@dimen/title_icon_size"
+                android:layout_margin="@dimen/margin_x2"
+                android:src="@drawable/ic_app_icon"
+                app:layout_constraintBottom_toBottomOf="@id/lblTitle"
+                app:layout_constraintEnd_toStartOf="@id/lblTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/lblTitle"
+                app:layout_constraintHorizontal_chainStyle="packed"/>
+
             <TextView
                 android:id="@+id/lblTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_x4"
+                style="@style/Label.AppTitle"
                 android:text="@string/app_name"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgLogo"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -84,7 +94,6 @@
             android:id="@+id/btnRegion"
             style="@style/ChipValue"
             android:text="@string/region_value_default"
-            android:textAppearance="@style/Label.TaxInput.Value"
             app:layout_constraintBaseline_toBaselineOf="@id/lblRegion"
             app:layout_constraintStart_toEndOf="@id/guideValues" />
 
@@ -99,7 +108,6 @@
             android:id="@+id/btnVehicleType"
             style="@style/ChipValue"
             android:text="@string/vehicle_type_value_default"
-            android:textAppearance="@style/Label.TaxInput.Value"
             app:layout_constraintBaseline_toBaselineOf="@id/lblVehicleType"
             app:layout_constraintStart_toEndOf="@id/guideValues" />
 
@@ -114,7 +122,6 @@
             android:id="@+id/btnEngineType"
             style="@style/ChipValue"
             android:text="@string/engine_type_value_default"
-            android:textAppearance="@style/Label.TaxInput.Value"
             app:layout_constraintBaseline_toBaselineOf="@id/lblEngineType"
             app:layout_constraintStart_toEndOf="@id/guideValues" />
 
@@ -129,7 +136,6 @@
             android:id="@+id/btnAge"
             style="@style/ChipValue"
             android:text="@string/age_value_default"
-            android:textAppearance="@style/Label.TaxInput.Value"
             app:layout_constraintBaseline_toBaselineOf="@id/lblAge"
             app:layout_constraintStart_toEndOf="@id/guideValues" />
 
@@ -144,7 +150,6 @@
             android:id="@+id/btnEnginePower"
             style="@style/ChipValue"
             android:text="@string/engine_power_value_default"
-            android:textAppearance="@style/Label.TaxInput.Value"
             app:layout_constraintBaseline_toBaselineOf="@id/lblEnginePower"
             app:layout_constraintStart_toEndOf="@id/guideValues" />
 
@@ -159,7 +164,6 @@
             android:id="@+id/btnEngineSize"
             style="@style/ChipValue"
             android:text="@string/engine_size_value_default"
-            android:textAppearance="@style/Label.TaxInput.Value"
             app:layout_constraintBaseline_toBaselineOf="@id/lblEngineSize"
             app:layout_constraintStart_toEndOf="@id/guideValues" />
 
@@ -174,7 +178,6 @@
             android:id="@+id/btnEmissions"
             style="@style/ChipValue"
             android:text="@string/emission_value_default"
-            android:textAppearance="@style/Label.TaxInput.Value"
             app:layout_constraintBaseline_toBaselineOf="@id/lblEmissions"
             app:layout_constraintStart_toEndOf="@id/guideValues" />
 
@@ -189,7 +192,6 @@
             android:id="@+id/btnChildren"
             style="@style/ChipValue"
             android:text="@string/children_value_default"
-            android:textAppearance="@style/Label.TaxInput.Value"
             app:layout_constraintBaseline_toBaselineOf="@id/lblChildren"
             app:layout_constraintStart_toEndOf="@id/guideValues" />
 

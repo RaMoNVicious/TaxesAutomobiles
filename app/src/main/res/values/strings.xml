@@ -3,8 +3,8 @@
 
     <string name="tax_annual">Annual Tax</string>
     <string name="tax_registration">Registration</string>
-    <string name="tax_value_default">0 000.00 €</string>
-    <string name="tax_value">%.2f €</string>
+    <string name="tax_value_default" translatable="false">0 000.00 €</string>
+    <string name="tax_value" translatable="false">%.2f €</string>
 
     <string name="selection_title">Select %s</string>
 
@@ -15,12 +15,12 @@
     <string name="region_brussels">Brussels</string>
 
     <string name="vehicle_type_title">Vehicle type</string>
-    <string name="vehicle_type_value_default">@string/vehicle_type_car</string>
+    <string name="vehicle_type_value_default" translatable="false">@string/vehicle_type_car</string>
     <string name="vehicle_type_car">Passenger car</string>
     <string name="vehicle_type_moto">Motorcycle</string>
 
     <string name="engine_type_title">Engine type</string>
-    <string name="engine_type_value_default">@string/engine_type_petrol</string>
+    <string name="engine_type_value_default" translatable="false">@string/engine_type_petrol</string>
     <string name="engine_type_petrol">Petrol</string>
     <string name="engine_type_diesel">Diesel</string>
     <string name="engine_type_lpg">LPG</string>
@@ -34,9 +34,9 @@
     <string name="age_value_default">1 year(s)</string>
 
     <string name="engine_power_title">Engine Power</string>
-    <string name="engine_power_value">%s kW</string>
-    <string name="engine_power_value_lower">≤%d kW</string>
-    <string name="engine_power_value_greater">%d+ kW</string>
+    <string name="engine_power_value" translatable="false">%s kW</string>
+    <string name="engine_power_value_lower" translatable="false">≤%d kW</string>
+    <string name="engine_power_value_greater" translatable="false">%d+ kW</string>
     <string name="engine_power_value_default">100 kW</string>
     <string name="engine_power_up_to_70">≤70</string>
     <string name="engine_power_up_to_85">71 – 85</string>
@@ -47,37 +47,37 @@
     <string name="engine_power_more_than_155">155+</string>
 
     <string name="engine_size_title">Engine size</string>
-    <string name="engine_size_value">%d cm³</string>
-    <string name="engine_size_value_lower">≤%d cm³</string>
-    <string name="engine_size_value_greater">%d+ cm³</string>
-    <string name="engine_size_value_default">999 cm³</string>
+    <string name="engine_size_value" translatable="false">%d cm³</string>
+    <string name="engine_size_value_lower" translatable="false">≤%d cm³</string>
+    <string name="engine_size_value_greater" translatable="false">%d+ cm³</string>
+    <string name="engine_size_value_default" translatable="false">999 cm³</string>
 
     <string name="emission_title">CO2 Emission</string>
-    <string name="emission_value">%s g/km</string>
-    <string name="emission_value_lower">≤%d g/km</string>
-    <string name="emission_value_greater">%d+ g/km</string>
-    <string name="emission_value_default">99 g/km</string>
-    <string name="emission_up_to_145">≤145</string>
-    <string name="emission_up_to_155">146 – 155</string>
-    <string name="emission_up_to_165">156 – 165</string>
-    <string name="emission_up_to_175">166 – 175</string>
-    <string name="emission_up_to_185">176 – 185</string>
-    <string name="emission_up_to_195">186 – 195</string>
-    <string name="emission_up_to_205">196 – 205</string>
-    <string name="emission_up_to_215">206 – 215</string>
-    <string name="emission_up_to_225">216 – 225</string>
-    <string name="emission_up_to_235">226 – 235</string>
-    <string name="emission_up_to_245">236 – 245</string>
-    <string name="emission_up_to_255">246 – 255</string>
-    <string name="emission_more_than_255">255+</string>
+    <string name="emission_value" translatable="false">%s g/km</string>
+    <string name="emission_value_lower" translatable="false">≤%d g/km</string>
+    <string name="emission_value_greater" translatable="false">%d+ g/km</string>
+    <string name="emission_value_default" translatable="false">99 g/km</string>
+    <string name="emission_up_to_145" translatable="false">≤145</string>
+    <string name="emission_up_to_155" translatable="false">146 – 155</string>
+    <string name="emission_up_to_165" translatable="false">156 – 165</string>
+    <string name="emission_up_to_175" translatable="false">166 – 175</string>
+    <string name="emission_up_to_185" translatable="false">176 – 185</string>
+    <string name="emission_up_to_195" translatable="false">186 – 195</string>
+    <string name="emission_up_to_205" translatable="false">196 – 205</string>
+    <string name="emission_up_to_215" translatable="false">206 – 215</string>
+    <string name="emission_up_to_225" translatable="false">216 – 225</string>
+    <string name="emission_up_to_235" translatable="false">226 – 235</string>
+    <string name="emission_up_to_245" translatable="false">236 – 245</string>
+    <string name="emission_up_to_255" translatable="false">246 – 255</string>
+    <string name="emission_more_than_255" translatable="false">255+</string>
 
     <string name="children_title">Children</string>
-    <string name="children_value">%d</string>
+    <string name="children_value" translatable="false">%d</string>
     <string name="children_value_lower">No</string>
-    <string name="children_value_greater">%d+</string>
-    <string name="children_value_default">@string/children_value_lower</string>
+    <string name="children_value_greater" translatable="false">%d+</string>
+    <string name="children_value_default" translatable="false">@string/children_value_lower</string>
 
 
-    <string name="default_value">0</string>
+    <string name="default_value" translatable="false">0</string>
 
 </resources>
