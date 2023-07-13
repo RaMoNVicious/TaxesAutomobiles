@@ -26,6 +26,8 @@
             android:orientation="horizontal"
             android:visibility="@{isDisabled ? View.INVISIBLE : View.VISIBLE, default=visible}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/widget_ruler_item_tick_middle"
+            tools:itemCount="32"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

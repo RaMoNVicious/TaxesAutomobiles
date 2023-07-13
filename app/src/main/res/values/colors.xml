@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="main">#E24E1B</color>
+
     <color name="accent">#E8C547</color>
 
     <color name="bg_main_light">#FAFAFA</color>
@@ -11,8 +11,15 @@
     <color name="text_label">#64667D</color>
     <color name="text_value">@color/text_normal</color>
 
+    <color name="button_tint">@color/accent</color>
+    <color name="button_tint_unselected">#80E8C547</color>
+    <color name="button_tint_disabled">#B8B9C6</color>
+    <color name="button_text">@color/text_normal</color>
+    <color name="button_text_disabled">#8030323D</color>
+
     <color name="ruler_value">@color/accent</color>
-    <color name="ruler_value_disabled">#A0A0A0</color>
+    <color name="ruler_value_tick">@color/accent</color>
+    <color name="ruler_value_disabled">@color/text_label</color>
     <color name="ruler_tick">@color/text_label</color>
 
 </resources>

@@ -6,17 +6,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="@dimen/margin_x8"
-        android:paddingVertical="@dimen/margin_x4"
         tools:context=".ui.selection.SelectionFragment">
 
         <TextView
             android:id="@+id/txtTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_x4"
-            android:text="dialog_title"
-            android:transitionName="txtTitle"
+            style="@style/Label.Title"
+            android:layout_marginTop="@dimen/margin_x4"
+            android:text="@string/app_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +22,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_x4"
-            android:layout_marginBottom="@dimen/margin_x8"
+            android:layout_marginHorizontal="@dimen/margin_x8"
             app:singleSelection="true"
             app:selectionRequired="true"
             app:layout_constraintBottom_toTopOf="@id/btnDone"
@@ -34,23 +30,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txtTitle">
 
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="option_1" />
+            <include layout="@layout/chip_list_item"/>
 
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="option_2" />
+            <include layout="@layout/chip_list_item"/>
+
+            <include layout="@layout/chip_list_item"/>
 
         </com.google.android.material.chip.ChipGroup>
 
         <Button
             android:id="@+id/btnDone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="OK"
+            style="@style/Button.Dialog"
+            android:text="@string/button_ok"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

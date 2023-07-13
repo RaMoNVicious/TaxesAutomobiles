@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Taxes Automobiles</string>
 
+    <string name="button_ok">OK</string>
+
     <string name="tax_annual">Annual Tax</string>
     <string name="tax_registration">Registration</string>
     <string name="tax_value_default" translatable="false">0 000.00 €</string>
@@ -23,7 +25,7 @@
     <string name="engine_type_value_default" translatable="false">@string/engine_type_petrol</string>
     <string name="engine_type_petrol">Petrol</string>
     <string name="engine_type_diesel">Diesel</string>
-    <string name="engine_type_lpg">LPG</string>
+    <string name="engine_type_lpg" translatable="false">LPG</string>
     <string name="engine_type_hybrid">Hybrid</string>
     <string name="engine_type_electric">Electric</string>
 
@@ -37,14 +39,14 @@
     <string name="engine_power_value" translatable="false">%s kW</string>
     <string name="engine_power_value_lower" translatable="false">≤%d kW</string>
     <string name="engine_power_value_greater" translatable="false">%d+ kW</string>
-    <string name="engine_power_value_default">100 kW</string>
-    <string name="engine_power_up_to_70">≤70</string>
-    <string name="engine_power_up_to_85">71 – 85</string>
-    <string name="engine_power_up_to_100">86 – 100</string>
-    <string name="engine_power_up_to_110">101 – 110</string>
-    <string name="engine_power_up_to_120">111 – 120</string>
-    <string name="engine_power_up_to_155">121 – 155</string>
-    <string name="engine_power_more_than_155">155+</string>
+    <string name="engine_power_value_default" translatable="false">100 kW</string>
+    <string name="engine_power_up_to_70" translatable="false">≤70</string>
+    <string name="engine_power_up_to_85" translatable="false">71 – 85</string>
+    <string name="engine_power_up_to_100" translatable="false">86 – 100</string>
+    <string name="engine_power_up_to_110" translatable="false">101 – 110</string>
+    <string name="engine_power_up_to_120" translatable="false">111 – 120</string>
+    <string name="engine_power_up_to_155" translatable="false">121 – 155</string>
+    <string name="engine_power_more_than_155" translatable="false">155+</string>
 
     <string name="engine_size_title">Engine size</string>
     <string name="engine_size_value" translatable="false">%d cm³</string>

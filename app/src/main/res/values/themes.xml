@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.TaxesAutomobiles" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.TaxesAutomobiles" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowBackground">@drawable/background_main</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightStatusBar">@bool/is_light_icons</item>
 
         <item name="android:fontFamily">@font/roboto_slab_light</item>
         <item name="android:textColor">@color/text_normal</item>
@@ -33,18 +33,18 @@
         <item name="android:textColor">@color/text_value</item>
     </style>
 
-    <style name="Label.AppTitle" parent="Label">
+    <style name="Label.Title" parent="Label">
         <item name="android:fontFamily">@font/roboto_slab_medium</item>
         <item name="android:layout_height">@dimen/title_height</item>
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="Label.AppTitle" parent="Label.Title" />
+
     <style name="Label.TaxInput" parent="Label">
         <item name="android:layout_marginStart">@dimen/margin_x8</item>
         <item name="android:layout_marginTop">@dimen/margin_x8</item>
     </style>
-
-    <style name="Label.TaxInput.Value" parent="Value" />
 
     <style name="Label.Taxes" parent="Label">
         <item name="android:textSize">@dimen/text_tax_label_size</item>
@@ -54,6 +54,19 @@
         <item name="android:textSize">@dimen/text_tax_label_size</item>
     </style>
 
+
+    <style name="Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@color/button_tint</item>
+        <item name="android:fontFamily">@font/roboto_slab_medium</item>
+        <item name="android:textColor">@color/button_text</item>
+    </style>
+
+    <style name="Button.Dialog" parent="Button">
+        <item name="android:layout_margin">@dimen/margin_x8</item>
+    </style>
+
     <style name="ChipValue">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -61,8 +74,20 @@
         <item name="chipStartPadding">@dimen/margin_x2</item>
         <item name="chipEndPadding">@dimen/margin_x2</item>
         <item name="android:backgroundTint">@color/accent</item>
-        <item name="android:textAppearance">@style/Label.TaxInput.Value</item>
+        <item name="android:fontFamily">@font/roboto_slab_medium</item>
+        <item name="android:textColor">@color/button_text</item>
+        <item name="android:textAppearance">@style/Value</item>
     </style>
 
+    <style name="ChipSelection" parent="@style/Widget.MaterialComponents.Chip.Choice">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="chipStartPadding">@dimen/margin_x2</item>
+        <item name="chipEndPadding">@dimen/margin_x2</item>
+        <item name="android:backgroundTint">@color/chip_background_color</item>
+        <item name="android:fontFamily">@font/roboto_slab_medium</item>
+        <item name="android:textColor">@color/chip_text_color</item>
+        <item name="android:textAppearance">@style/Value</item>
+    </style>
 
 </resources>

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Taxes Automobiles</string>
+    <item name="is_light_icons" type="bool">true</item>
 </resources>

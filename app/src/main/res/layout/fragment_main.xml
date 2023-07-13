@@ -10,7 +10,6 @@
             android:id="@+id/pnlTaxes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_x4"
             android:background="@drawable/background_header"
             android:elevation="@dimen/margin_x8"
             android:shadowColor="#ff0000"
