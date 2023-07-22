@@ -11,7 +11,7 @@
     <string name="selection_title">Select %s</string>
 
     <string name="region_title">Region</string>
-    <string name="region_value_default">Belgium</string>
+    <string name="region_value_default" translatable="false">@string/region_walloon</string>
     <string name="region_walloon">Walloon</string>
     <string name="region_flemish">Flemish</string>
     <string name="region_brussels">Brussels</string>

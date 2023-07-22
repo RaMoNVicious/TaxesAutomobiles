@@ -134,7 +134,7 @@ class TuneFragment : BottomSheetDialogFragment() {
                                     getString(R.string.children_value_lower)
 
                                 value >= items[items.count() - 2] ->
-                                    getString(R.string.children_value_greater)
+                                    getString(R.string.children_value_greater, items[items.count() - 2])
 
                                 else ->
                                     getString(
