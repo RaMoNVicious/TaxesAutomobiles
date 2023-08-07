@@ -21,10 +21,19 @@ android {
         }
     }
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     buildTypes {
+        debug {
+            buildConfigField "String", "ad_banner_id", "\"ca-app-pub-3940256099942544/6300978111\""
+        }
         release {
+            buildConfigField "String", "ad_banner_id", "\"ca-app-pub-6337813370020696/7906725504\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
         }
     }
     compileOptions {
@@ -75,7 +84,8 @@ dependencies {
     implementation 'io.insert-koin:koin-android:3.4.0'
 
     // Other
-    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.google.android.gms:play-services-ads:22.2.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Fiscalité des véhicules – Belgium</string>
+    <string name="tax_annual">Taxe de Circulation</string>
+    <string name="tax_registration">Taxe Immatriculation</string>
     <string name="selection_title">Sélectionner %s</string>
     <string name="region_title">Région</string>
-    <string name="region_walloon">Wallon</string>
+    <string name="region_walloon">Wallonie</string>
     <string name="region_flemish">Flamand</string>
     <string name="region_brussels">Bruxelles</string>
     <string name="vehicle_type_title">Type de véhicule</string>
@@ -20,11 +22,12 @@
     <string name="age_value_greater">%d+ ans</string>
     <string name="age_value_default">1 an</string>
     <string name="engine_power_title">Puissance de moteur</string>
-    <string name="engine_size_title">Taille du moteur</string>
+    <string name="engine_size_title">Cylindré</string>
     <string name="emission_title">Émissions de CO2</string>
     <string name="children_title">Enfants</string>
     <string name="children_value_lower">Non</string>
     <string name="app_info_title">À propos</string>
     <string name="app_info_tax_walloon"><a href="https://finances.wallonie.be/home/fiscalite/fiscalite-des-vehicules.html">wallonie.be – Fiscalité des véhicules</a></string>
     <string name="app_info">Cette application n\'est pas une application officielle des autorités publiques.\n\nLes calculs des taxes sont basés sur des données fournies officiellement fournies sur les ressources suivantes:</string>
+    <string name="default_value">Taxe Immatriculation</string>
 </resources>

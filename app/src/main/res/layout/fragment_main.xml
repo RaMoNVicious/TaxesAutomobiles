@@ -75,6 +75,27 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <FrameLayout
+            android:id="@+id/adPanel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_x2"
+            android:background="@drawable/background_ad"
+            android:paddingHorizontal="@dimen/margin_x2"
+            android:paddingVertical="@dimen/margin_x1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pnlTaxes">
+
+            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="@dimen/ad_width"
+                android:layout_height="@dimen/ad_height"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/ad_banner_id" />
+
+        </FrameLayout>
+
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/guideValues"
             android:layout_width="wrap_content"
@@ -87,7 +108,7 @@
             style="@style/Label.TaxInput"
             android:text="@string/region_title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pnlTaxes" />
+            app:layout_constraintTop_toBottomOf="@id/adPanel" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/btnRegion"

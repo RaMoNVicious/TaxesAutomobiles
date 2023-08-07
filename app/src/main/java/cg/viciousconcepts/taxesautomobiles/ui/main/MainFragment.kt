@@ -1,6 +1,8 @@
 package cg.viciousconcepts.taxesautomobiles.ui.main
 
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +20,9 @@ import cg.viciousconcepts.taxesautomobiles.models.domain.TaxInput
 import cg.viciousconcepts.taxesautomobiles.models.domain.VehicleType
 import cg.viciousconcepts.taxesautomobiles.ui.selection.SelectionFragment
 import cg.viciousconcepts.taxesautomobiles.ui.tune.TuneFragment
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
+import org.koin.android.BuildConfig
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.Serializable
 
@@ -38,8 +43,14 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        context?.let {
+            MobileAds.initialize(it) { }
+        }
+
         _binding.apply {
             lifecycleOwner = this@MainFragment
+
+            adView.loadAd(AdRequest.Builder().build())
 
             btnAbout.setOnClickListener {
                 activity
