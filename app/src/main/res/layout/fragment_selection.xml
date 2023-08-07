@@ -21,11 +21,12 @@
             android:id="@+id/listItems"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/margin_x4"
+            android:layout_marginTop="@dimen/margin_x4"
+            android:layout_marginBottom="@dimen/margin_x12"
             android:layout_marginHorizontal="@dimen/margin_x8"
             app:singleSelection="true"
             app:selectionRequired="true"
-            app:layout_constraintBottom_toTopOf="@id/btnDone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txtTitle">
@@ -37,13 +38,6 @@
             <include layout="@layout/chip_list_item"/>
 
         </com.google.android.material.chip.ChipGroup>
-
-        <Button
-            android:id="@+id/btnDone"
-            style="@style/Button.Dialog"
-            android:text="@string/button_ok"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

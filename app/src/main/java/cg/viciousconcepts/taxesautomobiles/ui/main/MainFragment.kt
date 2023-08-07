@@ -41,6 +41,12 @@ class MainFragment : Fragment() {
         _binding.apply {
             lifecycleOwner = this@MainFragment
 
+            btnAbout.setOnClickListener {
+                activity
+                    ?.findNavController(R.id.nav_host_fragment_container)
+                    ?.navigate(R.id.action_mainFragment_to_aboutFragment)
+            }
+
             viewModel.taxInput.observe(viewLifecycleOwner) { tax ->
                 btnRegion.text = getString(tax.region.stringId)
                 btnVehicleType.text = getString(tax.vehicleType.stringId)

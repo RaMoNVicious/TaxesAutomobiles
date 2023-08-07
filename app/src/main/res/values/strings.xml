@@ -1,7 +1,13 @@
 <resources>
-    <string name="app_name">Taxes Automobiles</string>
+    <string name="app_name">Vehicle Taxes – Belgium</string>
 
-    <string name="button_ok">OK</string>
+    <string name="app_info_title">About</string>
+    <string name="app_info_privacy_policy" translatable="false"><a href="https://docs.google.com/document/d/15eXYtg6Kjcev9qCZOLXEDKUlNT_MQwZSf6YWF4md2gc/">Privacy Policy</a></string>
+
+    <string name="app_info">This application is not an official public authorities application.\n\nTax calculations are based on officially provided data provided on the following resources:</string>
+    <string name="app_info_tax_walloon"><a href="https://finances.wallonie.be/home/fiscalite/fiscalite-des-vehicules.html">wallonie.be – Vehicle taxation</a></string>
+
+    <string name="button_ok" translatable="false">OK</string>
 
     <string name="tax_annual">Annual Tax</string>
     <string name="tax_registration">Registration</string>
@@ -33,7 +39,7 @@
     <string name="age_value">%d year(s)</string>
     <string name="age_value_lower">New</string>
     <string name="age_value_greater">%d+ years</string>
-    <string name="age_value_default">1 year(s)</string>
+    <string name="age_value_default">1 year</string>
 
     <string name="engine_power_title">Engine Power</string>
     <string name="engine_power_value" translatable="false">%s kW</string>

@@ -3,13 +3,13 @@
 
     <color name="accent">#E8C547</color>
 
-    <color name="bg_main_light">#FAFAFA</color>
+    <color name="bg_main_light">#ffffff</color>
     <color name="bg_main_dark">#F0F0F0</color>
-    <color name="bg_white">#ffffff</color>
 
     <color name="text_normal">#30323D</color>
     <color name="text_label">#64667D</color>
     <color name="text_value">@color/text_normal</color>
+    <color name="text_link">#E24E1B</color>
 
     <color name="button_tint">@color/accent</color>
     <color name="button_tint_unselected">#80E8C547</color>

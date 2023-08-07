@@ -17,24 +17,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/imgLogo"
-                android:layout_width="@dimen/title_icon_size"
-                android:layout_height="@dimen/title_icon_size"
-                android:layout_margin="@dimen/margin_x2"
-                android:src="@drawable/ic_app_icon"
-                app:layout_constraintBottom_toBottomOf="@id/lblTitle"
-                app:layout_constraintEnd_toStartOf="@id/lblTitle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/lblTitle"
-                app:layout_constraintHorizontal_chainStyle="packed"/>
+            <ImageButton
+                android:id="@+id/btnAbout"
+                android:layout_width="@dimen/title_height"
+                android:layout_height="@dimen/title_height"
+                android:background="@null"
+                android:contentDescription="@string/app_info_title"
+                android:padding="@dimen/margin_x2"
+                android:src="@drawable/ic_about"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/text_label" />
 
             <TextView
                 android:id="@+id/lblTitle"
                 style="@style/Label.AppTitle"
                 android:text="@string/app_name"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/imgLogo"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView

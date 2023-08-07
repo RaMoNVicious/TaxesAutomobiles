@@ -9,6 +9,7 @@
 
         <item name="android:fontFamily">@font/roboto_slab_light</item>
         <item name="android:textColor">@color/text_normal</item>
+        <!--<item name="android:textSize">@dimen/text_size</item>-->
     </style>
 
     <style name="BottomSheetPopupTheme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
@@ -24,19 +25,20 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">@font/roboto_slab_light</item>
         <item name="android:textColor">@color/text_label</item>
-        <item name="android:textSize">@dimen/text_size</item>
         <item name="android:lines">1</item>
     </style>
 
     <style name="Value" parent="Label">
         <item name="android:fontFamily">@font/roboto_slab_medium</item>
         <item name="android:textColor">@color/text_value</item>
+        <item name="android:textSize">@dimen/text_size</item>
     </style>
 
     <style name="Label.Title" parent="Label">
         <item name="android:fontFamily">@font/roboto_slab_medium</item>
         <item name="android:layout_height">@dimen/title_height</item>
         <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text_size</item>
     </style>
 
     <style name="Label.AppTitle" parent="Label.Title" />
@@ -44,6 +46,7 @@
     <style name="Label.TaxInput" parent="Label">
         <item name="android:layout_marginStart">@dimen/margin_x8</item>
         <item name="android:layout_marginTop">@dimen/margin_x8</item>
+        <item name="android:textSize">@dimen/text_size</item>
     </style>
 
     <style name="Label.Taxes" parent="Label">
@@ -52,6 +55,13 @@
 
     <style name="Label.Taxes.Value" parent="Value">
         <item name="android:textSize">@dimen/text_tax_label_size</item>
+    </style>
+
+    <style name="Label.Link" parent="Label">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColorLink">@color/text_link</item>
+        <item name="android:fontFamily">@font/roboto_slab_medium</item>
     </style>
 
 

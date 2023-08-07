@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.selection.SelectionFragment">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            style="@style/Label.Title"
+            android:layout_marginTop="@dimen/margin_x4"
+            android:text="@string/app_info_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_x8"
+            android:layout_marginTop="@dimen/margin_x4"
+            android:layout_marginBottom="@dimen/margin_x12"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/btnDone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtTitle">
+
+            <TextView
+                android:id="@+id/txtInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_info"
+                app:layout_constraintBottom_toTopOf="@id/txtTaxWalloon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtTitle" />
+
+            <TextView
+                android:id="@+id/txtTaxWalloon"
+                style="@style/Label.Link"
+                android:layout_marginStart="@dimen/margin_x8"
+                android:layout_marginTop="@dimen/margin_x2"
+                android:text="@string/app_info_tax_walloon"
+                app:layout_constraintBottom_toTopOf="@id/btnDone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtInfo" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnDone"
+            style="@style/Button.Dialog"
+            android:text="@string/button_ok"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <TextView
+            android:id="@+id/txtPrivacy"
+            style="@style/Label.Link"
+            android:layout_marginStart="@dimen/margin_x8"
+            android:text="@string/app_info_privacy_policy"
+            app:layout_constraintBottom_toBottomOf="@id/btnDone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnDone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
