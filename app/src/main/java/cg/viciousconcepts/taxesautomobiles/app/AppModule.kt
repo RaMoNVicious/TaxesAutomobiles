@@ -40,5 +40,5 @@ val appModule = module {
             )
     }
 
-    factory { TaxUseCase(get(), get()) }
+    factory { TaxUseCase(get(), get(), get()) }
 }

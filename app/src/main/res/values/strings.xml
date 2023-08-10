@@ -69,19 +69,9 @@
     <string name="emission_value_lower" translatable="false">≤%d g/km</string>
     <string name="emission_value_greater" translatable="false">%d+ g/km</string>
     <string name="emission_value_default" translatable="false">99 g/km</string>
-    <string name="emission_up_to_145" translatable="false">≤145</string>
-    <string name="emission_up_to_155" translatable="false">146 – 155</string>
-    <string name="emission_up_to_165" translatable="false">156 – 165</string>
-    <string name="emission_up_to_175" translatable="false">166 – 175</string>
-    <string name="emission_up_to_185" translatable="false">176 – 185</string>
-    <string name="emission_up_to_195" translatable="false">186 – 195</string>
-    <string name="emission_up_to_205" translatable="false">196 – 205</string>
-    <string name="emission_up_to_215" translatable="false">206 – 215</string>
-    <string name="emission_up_to_225" translatable="false">216 – 225</string>
-    <string name="emission_up_to_235" translatable="false">226 – 235</string>
-    <string name="emission_up_to_245" translatable="false">236 – 245</string>
-    <string name="emission_up_to_255" translatable="false">246 – 255</string>
-    <string name="emission_more_than_255" translatable="false">255+</string>
+    <string name="emission_to" translatable="false">≤%d</string>
+    <string name="emission_from_to" translatable="false">%1$d – %2$d</string>
+    <string name="emission_from" translatable="false">%d+</string>
 
     <string name="children_title">Children</string>
     <string name="children_value" translatable="false">%d</string>

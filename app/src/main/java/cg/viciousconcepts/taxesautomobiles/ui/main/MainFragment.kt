@@ -1,8 +1,6 @@
 package cg.viciousconcepts.taxesautomobiles.ui.main
 
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +10,7 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.findNavController
 import cg.viciousconcepts.taxesautomobiles.R
 import cg.viciousconcepts.taxesautomobiles.databinding.FragmentMainBinding
-import cg.viciousconcepts.taxesautomobiles.models.domain.Emissions
+import cg.viciousconcepts.taxesautomobiles.models.domain.Emission
 import cg.viciousconcepts.taxesautomobiles.models.domain.EnginePower
 import cg.viciousconcepts.taxesautomobiles.models.domain.EngineType
 import cg.viciousconcepts.taxesautomobiles.models.domain.Region
@@ -22,7 +20,6 @@ import cg.viciousconcepts.taxesautomobiles.ui.selection.SelectionFragment
 import cg.viciousconcepts.taxesautomobiles.ui.tune.TuneFragment
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
-import org.koin.android.BuildConfig
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.Serializable
 
@@ -84,7 +81,14 @@ class MainFragment : Fragment() {
 
                     else -> getString(R.string.engine_size_value, tax.engineSize)
                 }
-                btnEmissions.text = getString(R.string.emission_value, getString(tax.emissions.stringId))
+                btnEmissions.text = getString(
+                    R.string.emission_value,
+                    getString(
+                        R.string.emission_from_to,
+                        tax.emission.from,
+                        tax.emission.to
+                    )
+                )
                 btnChildren.text = when {
                     tax.children == 0 -> getString(R.string.children_value_lower)
                     tax.children >= 4 -> getString(R.string.children_value_greater, tax.children)
@@ -118,7 +122,7 @@ class MainFragment : Fragment() {
                 }
 
                 btnEmissions.setOnClickListener {
-                    showSelection(TaxInput.Emission, tax.emissions)
+                    showSelection(TaxInput.Emission, tax.emission)
                 }
 
                 btnChildren.setOnClickListener {
@@ -172,7 +176,7 @@ class MainFragment : Fragment() {
                         .let { viewModel.updateEngineSize(it) }
                 }
                 TaxInput.Emission -> {
-                    (bundle.getSerializable(TuneFragment.ARGUMENT_VALUE_SELECTED) as Emissions?)
+                    (bundle.getSerializable(TuneFragment.ARGUMENT_VALUE_SELECTED) as Emission?)
                         ?.let { viewModel.updateTax(it) }
                 }
                 TaxInput.Children -> {

@@ -8,7 +8,6 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.setFragmentResult
 import cg.viciousconcepts.taxesautomobiles.R
 import cg.viciousconcepts.taxesautomobiles.databinding.FragmentSelectionBinding
-import cg.viciousconcepts.taxesautomobiles.models.domain.Emissions
 import cg.viciousconcepts.taxesautomobiles.models.domain.EnginePower
 import cg.viciousconcepts.taxesautomobiles.models.domain.EngineType
 import cg.viciousconcepts.taxesautomobiles.models.domain.Region
@@ -123,11 +122,11 @@ class SelectionFragment : BottomSheetDialogFragment() {
                         R.string.emission_title,
                         items.map {
                             Pair(
-                                getString(R.string.emission_value, getString(it.stringId)),
+                                getString(R.string.emission_from_to, it.from, it.to),
                                 true
                             )
                         },
-                        items.indexOf(bundle.getSerializable(ARGUMENT_VALUE_SELECTED) as Emissions)
+                        1//items.indexOf(bundle.getSerializable(ARGUMENT_VALUE_SELECTED) as Emission)
                     ) { index ->
                         result.putSerializable(ARGUMENT_VALUE_SELECTED, items[index])
                         onSelected(result)

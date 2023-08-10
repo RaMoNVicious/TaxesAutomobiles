@@ -1,6 +1,5 @@
 package cg.viciousconcepts.taxesautomobiles.repositories
 
-import cg.viciousconcepts.taxesautomobiles.models.domain.Emissions
 import cg.viciousconcepts.taxesautomobiles.models.domain.EnginePower
 import kotlinx.coroutines.flow.flow
 
@@ -8,9 +7,6 @@ class RegistrationRepository {
 
     fun getRegistrationData() =
         flow { emit(registrationData) }
-
-    fun getEmissionData() =
-        flow { emit(emissionData) }
 
     fun getLpgAnnualData() =
         flow { emit(lpgAnnualAdd) }
@@ -56,22 +52,6 @@ class RegistrationRepository {
                     Pair(Pair(EnginePower.MoreThan155, Int.MAX_VALUE), 3965.6f),
                 )
             ),
-        )
-
-        private val emissionData = listOf(
-            Pair(Emissions.UpTo145, 0f),
-            Pair(Emissions.UpTo155, 100f),
-            Pair(Emissions.UpTo165, 175f),
-            Pair(Emissions.UpTo175, 250f),
-            Pair(Emissions.UpTo185, 375f),
-            Pair(Emissions.UpTo195, 500f),
-            Pair(Emissions.UpTo205, 600f),
-            Pair(Emissions.UpTo215, 700f),
-            Pair(Emissions.UpTo225, 1000f),
-            Pair(Emissions.UpTo235, 1200f),
-            Pair(Emissions.UpTo245, 1500f),
-            Pair(Emissions.UpTo255, 2000f),
-            Pair(Emissions.MoreThan255, 2500f),
         )
 
         private val lpgAnnualAdd = listOf(

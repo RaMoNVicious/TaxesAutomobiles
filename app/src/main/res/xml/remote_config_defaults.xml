@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+
+    <entry>
+
+        <key>emissions</key>
+
+        <value>[{"from":0,"to":145,"value":0},{"from":146,"to":155,"value":100},{"from":156,"to":165,"value":175},{"from":166,"to":175,"value":250},{"from":176,"to":185,"value":375},{"from":186,"to":195,"value":500},{"from":196,"to":205,"value":600},{"from":206,"to":215,"value":10700},{"from":216,"to":225,"value":1000},{"from":226,"to":235,"value":1200},{"from":236,"to":245,"value":1500},{"from":246,"to":255,"value":2000},{"from":256,"to":2147483647,"value":2500}]</value>
+
+    </entry>
+
+    <entry>
+
+        <key>size2cv</key>
+
+        <value>[{"from":0,"to":750,"cv":4},{"from":751,"to":950,"cv":5},{"from":951,"to":1150,"cv":6},{"from":1151,"to":1350,"cv":7},{"from":1351,"to":1550,"cv":8},{"from":1551,"to":1750,"cv":9},{"from":1751,"to":1950,"cv":10},{"from":1951,"to":2150,"cv":11},{"from":2151,"to":2350,"cv":12},{"from":2351,"to":2550,"cv":13},{"from":2551,"to":2750,"cv":14},{"from":2751,"to":3050,"cv":15},{"from":3051,"to":3250,"cv":16},{"from":3251,"to":3450,"cv":17},{"from":3451,"to":3650,"cv":18},{"from":3651,"to":3950,"cv":19},{"from":3951,"to":4150,"cv":20},{"from":4151,"to":7600,"cv":21}]</value>
+
+    </entry>
+
+    <entry>
+
+        <key>engine_size</key>
+
+        <value>{"min":100,"max":7600,"step":100}</value>
+
+    </entry>
+
+</defaultsMap>

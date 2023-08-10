@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "513966990667",
+    "project_id": "vehicle-taxes---belgium",
+    "storage_bucket": "vehicle-taxes---belgium.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513966990667:android:39e8f3116e9b9eb3ce74ce",
+        "android_client_info": {
+          "package_name": "cg.viciousconcepts.taxesautomobiles"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "513966990667-laqg0e55gn34s98rk3jklrjno8n3bma3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZQPDYDJuS8RgUyI1DDTnWjUnZ7SSM4KM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "513966990667-laqg0e55gn34s98rk3jklrjno8n3bma3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

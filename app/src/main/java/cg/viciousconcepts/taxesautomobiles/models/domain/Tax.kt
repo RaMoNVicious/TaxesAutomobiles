@@ -3,25 +3,12 @@ package cg.viciousconcepts.taxesautomobiles.models.domain
 import java.io.Serializable
 
 data class Tax(
-    val region: Region,
-    val vehicleType: VehicleType,
-    val engineType: EngineType,
-    val age: Int,
-    val enginePower: EnginePower,
-    val engineSize: Int,
-    val emissions: Emissions,
-    val children: Int
-) : Serializable {
-    companion object {
-        val defaultTax = Tax(
-            Region.Walloon,
-            VehicleType.Car,
-            EngineType.Petrol,
-            4,
-            EnginePower.UpTo110,
-            2000,
-            Emissions.UpTo155,
-            0,
-        )
-    }
-}
+    val region: Region = Region.Walloon,
+    val vehicleType: VehicleType = VehicleType.Car,
+    val engineType: EngineType = EngineType.Petrol,
+    val age: Int = 4,
+    val enginePower: EnginePower = EnginePower.UpTo110,
+    val engineSize: Int = 2000,
+    val emission: Emission = Emission(),
+    val children: Int = 0
+) : Serializable

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import cg.viciousconcepts.taxesautomobiles.models.domain.Emissions
+import cg.viciousconcepts.taxesautomobiles.models.domain.Emission
 import cg.viciousconcepts.taxesautomobiles.models.domain.EnginePower
 import cg.viciousconcepts.taxesautomobiles.models.domain.EngineType
 import cg.viciousconcepts.taxesautomobiles.models.domain.Region
@@ -38,8 +38,8 @@ class SelectionViewModel(
     private val _enginePower: MutableLiveData<List<EnginePower>> = MutableLiveData<List<EnginePower>>()
     val enginePower: LiveData<List<EnginePower>> = _enginePower
 
-    private val _emissions: MutableLiveData<List<Emissions>> = MutableLiveData<List<Emissions>>()
-    val emissions: LiveData<List<Emissions>> = _emissions
+    private val _emissions: MutableLiveData<List<Emission>> = MutableLiveData<List<Emission>>()
+    val emissions: LiveData<List<Emission>> = _emissions
 
     fun getRegions() {
         viewModelScope.launch(Dispatchers.IO) {

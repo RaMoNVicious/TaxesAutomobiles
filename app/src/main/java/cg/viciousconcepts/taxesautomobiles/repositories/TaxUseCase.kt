@@ -3,14 +3,13 @@ package cg.viciousconcepts.taxesautomobiles.repositories
 import cg.viciousconcepts.taxesautomobiles.models.domain.EngineType
 import cg.viciousconcepts.taxesautomobiles.models.domain.Tax
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.zip
 
 class TaxUseCase(
     private val engineSizeRepository: EngineSizeRepository,
-    private val registrationRepository: RegistrationRepository
+    private val registrationRepository: RegistrationRepository,
+    private val emissionRepository: EmissionRepository
 ) : BaseUseCase {
 
     fun getAnnualTax(tax: Tax): Flow<Float> {
@@ -63,16 +62,15 @@ class TaxUseCase(
                 EngineType.Petrol, EngineType.Diesel, EngineType.Hybrid, EngineType.LPG -> {
                     registrationRepository
                         .getRegistrationData()
-                        .zip(registrationRepository.getEmissionData()) { registration, emission ->
+                        .zip(emissionRepository.getData()) { registration, emission ->
                             Pair(registration, emission)
                         }
                         .zip(engineSizeRepository.getCV(tax.engineSize)) { (registration, emissions), cv ->
                             val emission = emissions
-                                .map { it.first }
                                 .let {
                                     it[kotlin.math.max(
                                         0,
-                                        it.indexOf(tax.emissions) - when (tax.children) {
+                                        it.indexOf(tax.emission) - when (tax.children) {
                                             3 -> 1
                                             4 -> 2
                                             else -> 0
@@ -92,8 +90,8 @@ class TaxUseCase(
                                     .first { cv <= it.first.second }
                                     .second
                             ) + emissions
-                                .first { it.first == emission }
-                                .second
+                                .first { it == emission }
+                                .value
                         }.collect {
                             emit(it)
                         }

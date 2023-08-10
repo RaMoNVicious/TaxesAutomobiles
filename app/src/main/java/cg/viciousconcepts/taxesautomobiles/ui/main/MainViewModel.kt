@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import cg.viciousconcepts.taxesautomobiles.models.domain.Emissions
+import cg.viciousconcepts.taxesautomobiles.models.domain.Emission
 import cg.viciousconcepts.taxesautomobiles.models.domain.EnginePower
 import cg.viciousconcepts.taxesautomobiles.models.domain.EngineType
 import cg.viciousconcepts.taxesautomobiles.models.domain.Region
@@ -38,12 +38,12 @@ class MainViewModel(
             _taxInput.postValue(
                 sharedPreferences
                     .getString(SAVED_STATE, null)
-                    ?.let { Gson().fromJson(it, Tax::class.java) } ?: Tax.defaultTax
+                    ?.let { Gson().fromJson(it, Tax::class.java) } ?: Tax()
             )
         }
     }
 
-    private fun tax() = _taxInput.value ?: Tax.defaultTax
+    private fun tax() = _taxInput.value ?: Tax()
 
     private fun save(tax: Tax) {
         _taxInput.postValue(tax)
@@ -101,10 +101,10 @@ class MainViewModel(
         }
     }
 
-    fun updateTax(value: Emissions) {
+    fun updateTax(value: Emission) {
         viewModelScope.launch(Dispatchers.IO) {
             ensureActive()
-            save(tax().copy(emissions = value))
+            save(tax().copy(emission = value))
         }
     }
 
